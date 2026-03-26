@@ -71,7 +71,7 @@
     // ── PASTRIES ────────────────────────────────────
     {
       category : "pastry",
-      name     : "Almond Croissant",git 
+      name     : "Almond Croissant",
       desc     : "Buttery layers filled with house-made frangipane and toasted almond slivers. Baked fresh.",
       price    : "420",
       badge    : "popular",

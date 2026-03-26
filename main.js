@@ -137,3 +137,59 @@
     });
 
 });
+
+/* ============================================================
+   SLIDER SECTION - Category Swiper (Moved from index.html)
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if Swiper is available
+    if (typeof Swiper !== 'undefined') {
+        new Swiper(".categorySwiper", {
+            loop: true,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1
+                },
+                576: {
+                    slidesPerView: 2
+                },
+                768: {
+                    slidesPerView: 3
+                },
+                1200: {
+                    slidesPerView: 4
+                }
+            }
+        });
+    }
+
+    // Click helper animation - hide after 6 seconds
+    setTimeout(() => {
+        const helper = document.querySelector(".click-helper");
+        if (helper) helper.style.display = "none";
+    }, 6000);
+
+    // Hide click/drag helpers on user interaction
+    const categorySwiper = document.querySelector(".categorySwiper");
+    if (categorySwiper) {
+        categorySwiper.addEventListener("click", () => {
+            const clickHelper = document.querySelector(".click-helper");
+            const dragHelper = document.querySelector(".drag-helper");
+            if (clickHelper) clickHelper.style.display = "none";
+            if (dragHelper) dragHelper.style.display = "none";
+        });
+
+        categorySwiper.addEventListener("touchstart", () => {
+            const clickHelper = document.querySelector(".click-helper");
+            const dragHelper = document.querySelector(".drag-helper");
+            if (clickHelper) clickHelper.style.display = "none";
+            if (dragHelper) dragHelper.style.display = "none";
+        });
+    }
+});

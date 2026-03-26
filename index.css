@@ -1,0 +1,982 @@
+/* ============================================================
+   INDEX.CSS — Full Design System
+   Color Theme: Pistachio Bakery Palette
+   #C1E899 · #9A6735 · #E6F0DC · #55883B
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap');
+
+/* ============================================================
+      1. ROOT DESIGN TOKENS — COLORS
+      ============================================================ */
+:root {
+
+    /* --- Core Palette --- */
+    --color-lime: #C1E899;
+    /* light green — primary accent */
+    --color-brown: #9A6735;
+    /* warm brown — warm accent / CTA */
+    --color-mint: #E6F0DC;
+    /* pale mint — backgrounds / surfaces */
+    --color-forest: #55883B;
+    /* deep green — secondary / headings */
+
+    /* --- Extended Shades (auto-derived steps) --- */
+    --color-lime-50: #f4fce9;
+    --color-lime-100: #e8f8d3;
+    --color-lime-200: #d4f0ab;
+    --color-lime-300: #C1E899;
+    /* base */
+    --color-lime-400: #a8d978;
+    --color-lime-500: #8dc957;
+    --color-lime-600: #72b83a;
+
+    --color-brown-50: #fdf6ee;
+    --color-brown-100: #f5e3ca;
+    --color-brown-200: #e8c597;
+    --color-brown-300: #cfa066;
+    --color-brown-400: #b88248;
+    --color-brown-500: #9A6735;
+    /* base */
+    --color-brown-600: #7d5028;
+    --color-brown-700: #5f3b1d;
+
+    --color-mint-50: #ffffff;
+    --color-mint-100: #f5faf0;
+    --color-mint-200: #E6F0DC;
+    /* base */
+    --color-mint-300: #d1e4c4;
+    --color-mint-400: #bad5a8;
+
+    --color-forest-50: #eef5e8;
+    --color-forest-100: #cde3bc;
+    --color-forest-200: #a4cc88;
+    --color-forest-300: #79b25a;
+    --color-forest-400: #55883B;
+    /* base */
+    --color-forest-500: #3f6a2b;
+    --color-forest-600: #2c4c1e;
+    --color-forest-700: #1a2e11;
+
+    /* --- Semantic Color Roles --- */
+    --color-primary: var(--color-lime-300);
+    --color-primary-hover: var(--color-lime-400);
+    --color-primary-active: var(--color-lime-500);
+    --color-primary-subtle: var(--color-lime-100);
+    --color-primary-fg: var(--color-forest-600);
+    /* text on primary bg */
+
+    --color-secondary: var(--color-forest-400);
+    --color-secondary-hover: var(--color-forest-500);
+    --color-secondary-active: var(--color-forest-600);
+    --color-secondary-subtle: var(--color-forest-50);
+    --color-secondary-fg: #ffffff;
+
+    --color-accent: var(--color-brown-500);
+    --color-accent-hover: var(--color-brown-600);
+    --color-accent-active: var(--color-brown-700);
+    --color-accent-subtle: var(--color-brown-100);
+    --color-accent-fg: #ffffff;
+
+    /* --- Neutral Scale --- */
+    --color-neutral-0: #ffffff;
+    --color-neutral-50: #f9fafb;
+    --color-neutral-100: #f3f4f6;
+    --color-neutral-200: #e5e7eb;
+    --color-neutral-300: #d1d5db;
+    --color-neutral-400: #9ca3af;
+    --color-neutral-500: #6b7280;
+    --color-neutral-600: #4b5563;
+    --color-neutral-700: #374151;
+    --color-neutral-800: #1f2937;
+    --color-neutral-900: #111827;
+    --color-neutral-950: #030712;
+
+    /* --- Semantic UI Surfaces --- */
+    --color-bg: var(--color-mint-200);
+    --color-bg-subtle: var(--color-mint-100);
+    --color-bg-raised: #ffffff;
+    --color-bg-overlay: rgba(255, 255, 255, 0.90);
+    --color-bg-inverse: var(--color-forest-700);
+
+    --color-surface: #ffffff;
+    --color-surface-muted: var(--color-mint-200);
+    --color-surface-overlay: rgba(230, 240, 220, 0.6);
+    --color-surface-inverse: var(--color-forest-600);
+
+    /* --- Text --- */
+    --color-text-primary: var(--color-forest-600);
+    --color-text-secondary: var(--color-forest-400);
+    --color-text-muted: var(--color-forest-200);
+    --color-text-disabled: var(--color-neutral-400);
+    --color-text-inverse: #ffffff;
+    --color-text-link: var(--color-forest-400);
+    --color-text-link-hover: var(--color-brown-500);
+
+    /* --- Borders --- */
+    --color-border: var(--color-lime-300);
+    --color-border-subtle: var(--color-mint-300);
+    --color-border-strong: var(--color-forest-300);
+    --color-border-focus: var(--color-forest-400);
+    --color-border-error: #dc2626;
+
+    /* --- Status Colors --- */
+    --color-success: var(--color-forest-400);
+    --color-success-bg: var(--color-forest-50);
+    --color-success-border: var(--color-forest-200);
+
+    --color-warning: var(--color-brown-400);
+    --color-warning-bg: var(--color-brown-50);
+    --color-warning-border: var(--color-brown-200);
+
+    --color-error: #dc2626;
+    --color-error-bg: #fef2f2;
+    --color-error-border: #fca5a5;
+
+    --color-info: var(--color-lime-500);
+    --color-info-bg: var(--color-lime-50);
+    --color-info-border: var(--color-lime-200);
+
+    /* --- Overlays & Scrims --- */
+    --color-scrim: rgba(42, 61, 28, 0.45);
+    --color-scrim-heavy: rgba(42, 61, 28, 0.75);
+    --color-highlight: rgba(193, 232, 153, 0.35);
+
+    /* ============================================================
+        2. TYPOGRAPHY
+        ============================================================ */
+
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-md: 1.125rem;
+    /* 18px */
+    --font-size-lg: 1.25rem;
+    /* 20px */
+    --font-size-xl: 1.5rem;
+    /* 24px */
+    --font-size-2xl: 1.875rem;
+    /* 30px */
+    --font-size-3xl: 2.25rem;
+    /* 36px */
+    --font-size-4xl: 3rem;
+    /* 48px */
+    --font-size-5xl: 3.75rem;
+    /* 60px */
+    --font-size-6xl: 4.5rem;
+    /* 72px */
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+    --line-height-loose: 2;
+
+    --letter-spacing-tight: -0.03em;
+    --letter-spacing-snug: -0.01em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.04em;
+    --letter-spacing-wider: 0.08em;
+    --letter-spacing-widest: 0.15em;
+
+    /* ============================================================
+        3. SPACING SCALE
+        ============================================================ */
+
+    --space-0: 0;
+    --space-px: 1px;
+    --space-0-5: 0.125rem;
+    /* 2px  */
+    --space-1: 0.25rem;
+    /* 4px  */
+    --space-1-5: 0.375rem;
+    /* 6px  */
+    --space-2: 0.5rem;
+    /* 8px  */
+    --space-2-5: 0.625rem;
+    /* 10px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.25rem;
+    /* 20px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-7: 1.75rem;
+    /* 28px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 2.5rem;
+    /* 40px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-14: 3.5rem;
+    /* 56px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+    --space-24: 6rem;
+    /* 96px */
+    --space-28: 7rem;
+    /* 112px */
+    --space-32: 8rem;
+    /* 128px */
+    --space-40: 10rem;
+    /* 160px */
+    --space-48: 12rem;
+    /* 192px */
+    --space-64: 16rem;
+    /* 256px */
+
+    /* ============================================================
+        4. BORDER RADIUS
+        ============================================================ */
+
+    --radius-none: 0;
+    --radius-xs: 0.125rem;
+    /* 2px  */
+    --radius-sm: 0.25rem;
+    /* 4px  */
+    --radius-md: 0.5rem;
+    /* 8px  */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+    --radius-2xl: 1.5rem;
+    /* 24px */
+    --radius-3xl: 2rem;
+    /* 32px */
+    --radius-pill: 9999px;
+    --radius-full: 50%;
+
+    /* ============================================================
+        5. SHADOWS & ELEVATION
+        ============================================================ */
+
+    --shadow-xs:
+        0 1px 2px rgba(85, 136, 59, 0.06);
+    --shadow-sm:
+        0 1px 3px rgba(85, 136, 59, 0.10),
+        0 1px 2px rgba(85, 136, 59, 0.06);
+    --shadow-md:
+        0 4px 6px -1px rgba(85, 136, 59, 0.12),
+        0 2px 4px -2px rgba(85, 136, 59, 0.08);
+    --shadow-lg:
+        0 10px 15px -3px rgba(85, 136, 59, 0.14),
+        0 4px 6px -4px rgba(85, 136, 59, 0.08);
+    --shadow-xl:
+        0 20px 25px -5px rgba(85, 136, 59, 0.15),
+        0 8px 10px -6px rgba(85, 136, 59, 0.10);
+    --shadow-2xl:
+        0 25px 50px -12px rgba(85, 136, 59, 0.25);
+    --shadow-inner:
+        inset 0 2px 4px rgba(85, 136, 59, 0.10);
+    --shadow-none:
+        none;
+
+    /* Colored shadows for cards & CTAs */
+    --shadow-lime:
+        0 8px 24px rgba(193, 232, 153, 0.55);
+    --shadow-brown:
+        0 8px 24px rgba(154, 103, 53, 0.35);
+    --shadow-forest:
+        0 8px 24px rgba(85, 136, 59, 0.35);
+
+    /* ============================================================
+        6. BORDER WIDTHS & STYLES
+        ============================================================ */
+
+    --border-width-0: 0;
+    --border-width-1: 1px;
+    --border-width-2: 2px;
+    --border-width-4: 4px;
+    --border-width-8: 8px;
+    --border-style: solid;
+
+    /* ============================================================
+        7. LAYOUT & GRID
+        ============================================================ */
+
+    --container-xs: 20rem;
+    /* 320px  */
+    --container-sm: 38rem;
+    /* 608px  */
+    --container-md: 48rem;
+    /* 768px  */
+    --container-lg: 64rem;
+    /* 1024px */
+    --container-xl: 80rem;
+    /* 1280px */
+    --container-2xl: 96rem;
+    /* 1536px */
+    --container-full: 100%;
+
+    --grid-cols-1: 1;
+    --grid-cols-2: 2;
+    --grid-cols-3: 3;
+    --grid-cols-4: 4;
+    --grid-cols-6: 6;
+    --grid-cols-12: 12;
+    --grid-gap: var(--space-6);
+    --grid-gap-sm: var(--space-4);
+    --grid-gap-lg: var(--space-8);
+
+    /* ============================================================
+        8. TRANSITIONS & ANIMATIONS
+        ============================================================ */
+
+    --duration-instant: 50ms;
+    --duration-fast: 100ms;
+    --duration-normal: 200ms;
+    --duration-slow: 350ms;
+    --duration-slower: 500ms;
+    --duration-lazy: 700ms;
+
+    --ease-linear: linear;
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    --transition-base: all var(--duration-normal) var(--ease-in-out);
+    --transition-colors: color var(--duration-normal) var(--ease-in-out),
+        background-color var(--duration-normal) var(--ease-in-out),
+        border-color var(--duration-normal) var(--ease-in-out);
+    --transition-opacity: opacity var(--duration-normal) var(--ease-in-out);
+    --transition-shadow: box-shadow var(--duration-normal) var(--ease-in-out);
+    --transition-transform: transform var(--duration-normal) var(--ease-spring);
+
+    /* ============================================================
+        9. Z-INDEX LAYERS
+        ============================================================ */
+
+    --z-base: 0;
+    --z-deco: 1;
+    --z-above: 10;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-overlay: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-toast: 700;
+    --z-tooltip: 800;
+    --z-cursor: 900;
+    --z-top: 9999;
+
+    /* ============================================================
+        10. COMPONENT TOKENS — NAVBAR
+        ============================================================ */
+
+    --navbar-height: 4rem;
+    --navbar-bg: rgba(230, 240, 220, 0.88);
+    --navbar-bg-scrolled: rgba(255, 255, 255, 0.96);
+    --navbar-border: var(--color-border-subtle);
+    --navbar-shadow: var(--shadow-sm);
+    --navbar-backdrop: blur(12px) saturate(180%);
+    --navbar-text: var(--color-text-primary);
+    --navbar-link-hover-bg: var(--color-primary-subtle);
+    --navbar-link-hover-text: var(--color-secondary);
+    --navbar-logo-size: 1.75rem;
+
+    /* ============================================================
+        11. COMPONENT TOKENS — SIDEBAR
+        ============================================================ */
+
+    --sidebar-width: 16rem;
+    --sidebar-width-collapsed: 4rem;
+    --sidebar-bg: var(--color-forest-700);
+    --sidebar-border: var(--color-forest-600);
+    --sidebar-text: var(--color-mint-200);
+    --sidebar-icon: var(--color-lime-300);
+    --sidebar-item-hover-bg: var(--color-forest-600);
+    --sidebar-item-active-bg: var(--color-forest-500);
+    --sidebar-item-active-text: var(--color-lime-300);
+    --sidebar-header-bg: var(--color-forest-700);
+    --sidebar-footer-bg: var(--color-forest-700);
+
+    /* ============================================================
+        12. COMPONENT TOKENS — BUTTONS
+        ============================================================ */
+
+    /* Primary */
+    --btn-primary-bg: var(--color-primary);
+    --btn-primary-bg-hover: var(--color-primary-hover);
+    --btn-primary-bg-active: var(--color-primary-active);
+    --btn-primary-text: var(--color-primary-fg);
+    --btn-primary-border: transparent;
+    --btn-primary-shadow: var(--shadow-lime);
+
+    /* Secondary */
+    --btn-secondary-bg: var(--color-secondary);
+    --btn-secondary-bg-hover: var(--color-secondary-hover);
+    --btn-secondary-text: var(--color-secondary-fg);
+    --btn-secondary-border: transparent;
+    --btn-secondary-shadow: var(--shadow-forest);
+
+    /* Accent / CTA */
+    --btn-accent-bg: var(--color-accent);
+    --btn-accent-bg-hover: var(--color-accent-hover);
+    --btn-accent-text: var(--color-accent-fg);
+    --btn-accent-border: transparent;
+    --btn-accent-shadow: var(--shadow-brown);
+
+    /* Ghost */
+    --btn-ghost-bg: transparent;
+    --btn-ghost-bg-hover: var(--color-primary-subtle);
+    --btn-ghost-text: var(--color-text-primary);
+    --btn-ghost-border: var(--color-border);
+
+    /* Outline */
+    --btn-outline-bg: transparent;
+    --btn-outline-bg-hover: var(--color-secondary);
+    --btn-outline-text: var(--color-secondary);
+    --btn-outline-text-hover: #ffffff;
+    --btn-outline-border: var(--color-secondary);
+
+    /* Destructive */
+    --btn-danger-bg: var(--color-error);
+    --btn-danger-bg-hover: #b91c1c;
+    --btn-danger-text: #ffffff;
+
+    /* Sizes */
+    --btn-height-xs: 1.75rem;
+    --btn-height-sm: 2.25rem;
+    --btn-height-md: 2.75rem;
+    --btn-height-lg: 3.25rem;
+    --btn-height-xl: 4rem;
+    --btn-padding-x-sm: var(--space-3);
+    --btn-padding-x-md: var(--space-5);
+    --btn-padding-x-lg: var(--space-7);
+    --btn-radius: var(--radius-lg);
+    --btn-font-weight: var(--font-weight-semibold);
+    --btn-letter-space: var(--letter-spacing-wide);
+    --btn-transition: var(--transition-base);
+
+    /* ============================================================
+        13. COMPONENT TOKENS — FORMS / INPUTS
+        ============================================================ */
+
+    --input-bg: #ffffff;
+    --input-bg-focus: #ffffff;
+    --input-bg-disabled: var(--color-neutral-100);
+    --input-border: var(--color-border);
+    --input-border-hover: var(--color-border-strong);
+    --input-border-focus: var(--color-border-focus);
+    --input-border-error: var(--color-border-error);
+    --input-border-width: var(--border-width-1);
+    --input-radius: var(--radius-md);
+    --input-height-sm: 2.25rem;
+    --input-height-md: 2.75rem;
+    --input-height-lg: 3.25rem;
+    --input-padding-x: var(--space-4);
+    --input-padding-y: var(--space-2-5);
+    --input-text: var(--color-text-primary);
+    --input-placeholder: var(--color-text-muted);
+    --input-label-text: var(--color-text-secondary);
+    --input-label-size: var(--font-size-sm);
+    --input-label-weight: var(--font-weight-medium);
+    --input-helper-text: var(--color-text-muted);
+    --input-shadow: var(--shadow-xs);
+    --input-shadow-focus: 0 0 0 3px rgba(85, 136, 59, 0.20);
+    --input-transition: var(--transition-colors), box-shadow var(--duration-normal) var(--ease-out);
+
+    /* ============================================================
+        14. COMPONENT TOKENS — CARDS
+        ============================================================ */
+
+    --card-bg: var(--color-surface);
+    --card-bg-hover: var(--color-bg-subtle);
+    --card-border: var(--color-border-subtle);
+    --card-border-hover: var(--color-border);
+    --card-radius: var(--radius-2xl);
+    --card-shadow: var(--shadow-md);
+    --card-shadow-hover: var(--shadow-xl);
+    --card-padding: var(--space-6);
+    --card-padding-sm: var(--space-4);
+    --card-padding-lg: var(--space-8);
+    --card-gap: var(--space-4);
+    --card-transition: box-shadow var(--duration-slow) var(--ease-out),
+        transform var(--duration-slow) var(--ease-spring),
+        border-color var(--duration-normal) var(--ease-in-out);
+    --card-hover-lift: translateY(-4px);
+
+    /* ============================================================
+        15. COMPONENT TOKENS — BADGES & TAGS
+        ============================================================ */
+
+    --badge-radius: var(--radius-pill);
+    --badge-font-size: var(--font-size-xs);
+    --badge-font-weight: var(--font-weight-semibold);
+    --badge-padding-x: var(--space-2-5);
+    --badge-padding-y: var(--space-0-5);
+    --badge-letter-space: var(--letter-spacing-wider);
+
+    --badge-primary-bg: var(--color-primary-subtle);
+    --badge-primary-text: var(--color-primary-fg);
+    --badge-secondary-bg: var(--color-secondary-subtle);
+    --badge-secondary-text: var(--color-secondary);
+    --badge-accent-bg: var(--color-accent-subtle);
+    --badge-accent-text: var(--color-accent);
+    --badge-success-bg: var(--color-success-bg);
+    --badge-success-text: var(--color-success);
+    --badge-warning-bg: var(--color-warning-bg);
+    --badge-warning-text: var(--color-warning);
+    --badge-error-bg: var(--color-error-bg);
+    --badge-error-text: var(--color-error);
+    --badge-neutral-bg: var(--color-neutral-100);
+    --badge-neutral-text: var(--color-neutral-600);
+
+    /* ============================================================
+        16. COMPONENT TOKENS — MODAL / DIALOG
+        ============================================================ */
+
+    --modal-bg: var(--color-surface);
+    --modal-border: var(--color-border-subtle);
+    --modal-radius: var(--radius-3xl);
+    --modal-shadow: var(--shadow-2xl);
+    --modal-padding: var(--space-8);
+    --modal-max-width-sm: 28rem;
+    --modal-max-width-md: 40rem;
+    --modal-max-width-lg: 56rem;
+    --modal-backdrop: var(--color-scrim);
+    --modal-header-border: var(--color-border-subtle);
+    --modal-footer-border: var(--color-border-subtle);
+
+    /* ============================================================
+        17. COMPONENT TOKENS — TOAST / ALERT
+        ============================================================ */
+
+    --toast-bg: var(--color-surface);
+    --toast-border: var(--color-border-subtle);
+    --toast-radius: var(--radius-xl);
+    --toast-shadow: var(--shadow-xl);
+    --toast-padding: var(--space-4) var(--space-5);
+    --toast-min-width: 20rem;
+    --toast-max-width: 28rem;
+    --toast-font-size: var(--font-size-sm);
+
+    /* ============================================================
+        18. COMPONENT TOKENS — TABLE
+        ============================================================ */
+
+    --table-bg: var(--color-surface);
+    --table-border: var(--color-border-subtle);
+    --table-radius: var(--radius-xl);
+    --table-shadow: var(--shadow-sm);
+    --table-head-bg: var(--color-mint-200);
+    --table-head-text: var(--color-text-secondary);
+    --table-head-font-size: var(--font-size-xs);
+    --table-head-weight: var(--font-weight-semibold);
+    --table-head-letter: var(--letter-spacing-wider);
+    --table-row-hover-bg: var(--color-bg-subtle);
+    --table-row-stripe-bg: rgba(193, 232, 153, 0.12);
+    --table-cell-padding-x: var(--space-5);
+    --table-cell-padding-y: var(--space-4);
+    --table-divider: var(--color-border-subtle);
+
+    /* ============================================================
+        19. COMPONENT TOKENS — TABS
+        ============================================================ */
+
+    --tab-bg: transparent;
+    --tab-text: var(--color-text-muted);
+    --tab-text-hover: var(--color-text-secondary);
+    --tab-text-active: var(--color-secondary);
+    --tab-border-active: var(--color-secondary);
+    --tab-border-width: 2px;
+    --tab-indicator-bg: var(--color-primary);
+    --tab-padding-x: var(--space-4);
+    --tab-padding-y: var(--space-2-5);
+    --tab-radius: var(--radius-md);
+    --tab-font-weight: var(--font-weight-medium);
+
+    /* ============================================================
+        20. COMPONENT TOKENS — PROGRESS / LOADER
+        ============================================================ */
+
+    --progress-bg: var(--color-mint-300);
+    --progress-fill: var(--color-secondary);
+    --progress-height: 0.5rem;
+    --progress-radius: var(--radius-pill);
+    --progress-striped-opacity: 0.15;
+    --spinner-color: var(--color-secondary);
+    --spinner-track: var(--color-border);
+    --spinner-size-sm: 1.25rem;
+    --spinner-size-md: 2rem;
+    --spinner-size-lg: 3rem;
+    --spinner-width: 2px;
+
+    /* ============================================================
+        21. COMPONENT TOKENS — TOOLTIP
+        ============================================================ */
+
+    --tooltip-bg: var(--color-forest-700);
+    --tooltip-text: #ffffff;
+    --tooltip-radius: var(--radius-md);
+    --tooltip-padding-x: var(--space-3);
+    --tooltip-padding-y: var(--space-2);
+    --tooltip-font-size: var(--font-size-xs);
+    --tooltip-shadow: var(--shadow-lg);
+    --tooltip-max-width: 18rem;
+    --tooltip-arrow-size: 6px;
+
+    /* ============================================================
+        22. COMPONENT TOKENS — AVATAR
+        ============================================================ */
+
+    --avatar-size-xs: 1.5rem;
+    --avatar-size-sm: 2rem;
+    --avatar-size-md: 2.5rem;
+    --avatar-size-lg: 3.5rem;
+    --avatar-size-xl: 5rem;
+    --avatar-bg: var(--color-primary);
+    --avatar-text: var(--color-primary-fg);
+    --avatar-border: #ffffff;
+    --avatar-border-width: 2px;
+    --avatar-radius: var(--radius-full);
+    --avatar-font-weight: var(--font-weight-semibold);
+
+    /* ============================================================
+        23. COMPONENT TOKENS — HEADER / HERO
+        ============================================================ */
+
+    --hero-bg: var(--color-forest-700);
+    --hero-text: #ffffff;
+    --hero-accent: var(--color-lime-300);
+    --hero-subtext: var(--color-mint-200);
+    --hero-min-height: 80vh;
+    --hero-overlay: linear-gradient(135deg,
+            var(--color-forest-700) 0%,
+            var(--color-forest-500) 60%,
+            var(--color-lime-500) 100%);
+
+    /* ============================================================
+        24. COMPONENT TOKENS — FOOTER
+        ============================================================ */
+
+    --footer-bg: var(--color-forest-700);
+    --footer-text: var(--color-mint-200);
+    --footer-text-muted: var(--color-forest-300);
+    --footer-link: var(--color-lime-300);
+    --footer-link-hover: var(--color-lime-400);
+    --footer-border: var(--color-forest-600);
+    --footer-logo-filter: brightness(0) invert(1);
+
+    /* ============================================================
+        25. COMPONENT TOKENS — SCROLLBAR
+        ============================================================ */
+
+    --scrollbar-width: 6px;
+    --scrollbar-track: var(--color-mint-200);
+    --scrollbar-thumb: var(--color-lime-400);
+    --scrollbar-thumb-hover: var(--color-forest-300);
+    --scrollbar-radius: var(--radius-pill);
+
+    /* ============================================================
+        26. GRADIENTS
+        ============================================================ */
+
+    --gradient-lime: linear-gradient(135deg, var(--color-lime-200), var(--color-lime-400));
+    --gradient-forest: linear-gradient(135deg, var(--color-forest-300), var(--color-forest-600));
+    --gradient-earthy: linear-gradient(135deg, var(--color-brown-300), var(--color-brown-600));
+    --gradient-hero: linear-gradient(160deg, var(--color-forest-700) 0%, var(--color-forest-500) 45%, var(--color-lime-400) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(230, 240, 220, 0.5));
+    --gradient-page: radial-gradient(ellipse at 30% 20%, rgba(193, 232, 153, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 80%, rgba(85, 136, 59, 0.15) 0%, transparent 55%),
+        var(--color-bg);
+    --gradient-mesh: radial-gradient(at 20% 20%, rgba(193, 232, 153, 0.4) 0px, transparent 50%),
+        radial-gradient(at 80% 80%, rgba(85, 136, 59, 0.25) 0px, transparent 50%),
+        radial-gradient(at 50% 10%, rgba(154, 103, 53, 0.15) 0px, transparent 50%);
+
+    /* ============================================================
+        27. BREAKPOINTS (reference only — use in media queries)
+        ============================================================
+   
+     xs:   320px
+     sm:   480px
+     md:   768px
+     lg:   1024px
+     xl:   1280px
+     2xl:  1536px
+   
+     ============================================================ */
+
+    /* ============================================================
+        28. MISC TOKENS
+        ============================================================ */
+
+    --focus-ring: 0 0 0 3px rgba(85, 136, 59, 0.30);
+    --focus-ring-offset: 2px;
+    --selection-bg: var(--color-primary);
+    --selection-text: var(--color-primary-fg);
+    --placeholder-opacity: 0.55;
+    --disabled-opacity: 0.45;
+    --skeleton-from: var(--color-mint-200);
+    --skeleton-to: var(--color-lime-100);
+}
+
+/* ============================================================
+      BASE RESET & GLOBAL STYLES
+      ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: var(--color-text-primary);
+    background: var(--gradient-page);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+
+::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+/* ============================================================
+      SCROLLBAR (webkit)
+      ============================================================ */
+
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: var(--scrollbar-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--scrollbar-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* ============================================================
+      FOCUS VISIBLE
+      ============================================================ */
+
+:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+      TYPOGRAPHY UTILITIES
+      ============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+}
+
+h1 {
+    font-size: var(--font-size-5xl);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+    font-size: var(--font-size-4xl);
+    letter-spacing: var(--letter-spacing-snug);
+}
+
+h3 {
+    font-size: var(--font-size-3xl);
+}
+
+h4 {
+    font-size: var(--font-size-2xl);
+}
+
+h5 {
+    font-size: var(--font-size-xl);
+}
+
+h6 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+}
+
+a {
+    color: var(--color-text-link);
+    text-decoration: none;
+    transition: var(--transition-colors);
+}
+
+a:hover {
+    color: var(--color-text-link-hover);
+    text-decoration: underline;
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+code {
+    background: var(--color-mint-200);
+    color: var(--color-forest-500);
+    padding: var(--space-0-5) var(--space-1-5);
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+      SKELETON LOADER ANIMATION
+      ============================================================ */
+
+@keyframes skeleton-pulse {
+
+    0%,
+    100% {
+        background-color: var(--skeleton-from);
+    }
+
+    50% {
+        background-color: var(--skeleton-to);
+    }
+}
+
+.skeleton {
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+/* ============================================================
+      SPINNER ANIMATION
+      ============================================================ */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================
+      FADE-IN PAGE ANIMATION
+      ============================================================ */
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fade-in-up var(--duration-slow) var(--ease-out) both;
+}
+
+body.fade-in-up [data-fade-in-up] {
+    animation: fade-in-up var(--duration-slow) var(--ease-out) both;
+}
+
+/* ============================================================ */
+header {
+    justify-content: space-between;
+    border: 2px solid black;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    background-color: var(--color-bg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 0;
+}
+header .logo button{
+    border: none;
+    height: 80px;
+    display: flex;
+    background-color: var(--color-bg);
+}
+header .logo img {
+    padding: 7px;
+    margin-top: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+header .nav-bar{
+    /* gap: 30px; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    font-size: 1.2em;
+}
+header .nav-bar ul{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 0;
+    font-size: 1.2em;
+    list-style: none;
+}

@@ -929,42 +929,191 @@ body.fade-in-up [data-fade-in-up] {
     animation: fade-in-up var(--duration-slow) var(--ease-out) both;
 }
 
-/* ============================================================ */
 header {
     justify-content: space-between;
-    border: 2px solid black;
-    padding: 10px;
-    height: 100px;
+    border: none;
+    border-bottom: var(--border-width-1) solid var(--color-border-subtle);
+    padding: 0 var(--space-6);
+    height: var(--navbar-height);
     display: flex;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: var(--z-sticky);
     align-items: center;
-    background-color: var(--color-bg);
-    border-radius: var(--radius-sm);
+    background-color: var(--navbar-bg);
+    backdrop-filter: var(--navbar-backdrop);
+    -webkit-backdrop-filter: var(--navbar-backdrop);
+    box-shadow: var(--navbar-shadow);
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+                box-shadow var(--duration-normal) var(--ease-in-out);
+}
+
+
+/* scrolled state — toggled by JS */
+header.scrolled {
+    background-color: var(--navbar-bg-scrolled);
     box-shadow: var(--shadow-md);
 }
 
 header .logo {
     display: flex;
     align-items: center;
-    gap: 40px;
-    margin-top: 0;
+    gap: var(--space-3);
+    flex-shrink: 0;
 }
-header .logo button{
+
+header .logo button.re-load {
     border: none;
-    height: 80px;
+    background: transparent;
+    cursor: pointer;
     display: flex;
-    background-color: var(--color-bg);
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
 }
+
+header .logo button.re-load:hover {
+    opacity: 0.85;
+}
+
+header .logo button.re-load h1 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    color: var(--color-secondary);
+    letter-spacing: var(--letter-spacing-tight);
+    white-space: nowrap;
+}
+
 header .logo img {
-    padding: 7px;
-    margin-top: 0;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+    transition: border-color var(--duration-normal) var(--ease-in-out);
 }
-header .nav-bar{
+
+header .logo img:hover {
+    border-color: var(--color-secondary);
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: var(--border-width-1) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+    gap: var(--space-2);
+    transition: var(--transition-colors),
+                box-shadow var(--duration-normal) var(--ease-out),
+                width var(--duration-slow) var(--ease-spring);
+    width: 220px;
+    box-shadow: var(--shadow-xs);
+}
+.search-bar:focus-within {
+    border-color: var(--color-border-focus);
+    box-shadow: var(--input-shadow-focus);
+    width: 280px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    width: 100%;
+}
+.search-bar input::placeholder {
+    color: var(--color-text-muted);
+    opacity: var(--placeholder-opacity);
+}
+
+.search-bar button {
+    background-color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: var(--font-size-sm);
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+                transform var(--duration-fast) var(--ease-spring);
+}
+
+.search-bar button:hover {
+    background-color: var(--color-accent);
+    transform: scale(1.08);
+}
+
+.search-bar button:active {
+    transform: scale(0.95);
+}
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+
+   .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    background: transparent;
+    border: var(--border-width-1) solid var(--color-border);
+    padding: var(--space-1-5);
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+                border-color var(--duration-normal) var(--ease-in-out);
+}
+
+.hamburger:hover {
+    background-color: var(--color-primary-subtle);
+    border-color: var(--color-border-strong);
+}
+
+.hamburger:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: var(--radius-pill);
+    transition: transform var(--duration-slow) var(--ease-spring),
+                opacity var(--duration-normal) var(--ease-in-out),
+                width var(--duration-slow) var(--ease-spring);
+    transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.hamburger.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+header .nav-bar {
     /* gap: 30px; */
     display: flex;
     align-items: center;
@@ -972,7 +1121,9 @@ header .nav-bar{
     margin-top: 0;
     font-size: 1.2em;
 }
-header .nav-bar ul{
+
+header .nav-bar ul {
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -981,50 +1132,100 @@ header .nav-bar ul{
     list-style: none;
 }
 
-header .nav-bar ul li a{
+/* Fix "double underline" issue:
+ * - Only create the underline by ::after, not by text-decoration.
+ * - On hover, do NOT use text-decoration: underline for nav links, only let the ::after run the underline animation.
+ * - Make sure all a in nav use text-decoration: none and manage all underline indication via ::after only.
+ * - Fix potential wrong variable usage for color.
+*/
+
+header .nav-bar ul li a {
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--color-text-primary); /* use correct color variable */
+    position: relative;
 }
 
-
-header .nav-bar ul li a:hover{
+header .nav-bar ul li a:hover {
     color: var(--color-primary);
-    
+    transition: color 0.3s ease;
+    /* Removed text-decoration: underline to avoid double underline */
 }
 
-
-header .nav-bar ul li a.active{
+/* Style for active link text */
+header .nav-bar ul li a.active {
     color: var(--color-primary);
 }
 
-
-header .nav-bar ul li a.active::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-    margin-top: 5px;
-}
-
-
-header .nav-bar ul li a::after{
+/* Animated underline for all nav links (default hidden) */
+header .nav-bar ul li a::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background-color: var(--color-primary);
+    background-color: var(--color-lime);
     margin-top: 5px;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    pointer-events: none;
 }
 
-
-header .nav-bar ul li a:hover::after{
+/* Show lime underline on hover */
+header .nav-bar ul li a:hover::after {
     width: 100%;
-}   
+    background-color: var(--color-lime);
+}
 
+/* For active, show brown underline instead, and full width */
+header .nav-bar ul li a.active::after {
+    width: 100%;
+    background-color: var(--color-brown);
+}
 
-header .nav-bar ul li a.active::after{
+/* Remove weird default underline for active links as well (redundant but safe) */
+header .nav-bar ul li a.active,
+header .nav-bar ul li a:active {
+    text-decoration: none !important; /* strong reset */
+}
+
+/* Responsive fix for search-bar expand */
+@media (max-width: 480px) {
+    .search-bar:focus-within {
+        width: 100%;
+    }
+}
+header .nav-bar .dropdown-menu {
+    display: block;        /* NOT flex */
+    flex-direction: unset;
+    gap: 0;
+    background-color: var(--color-surface);
+    border: var(--border-width-1) solid var(--color-border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-2);
+    margin-top: var(--space-2);
+    min-width: 10rem;
+}
+
+header .nav-bar .dropdown-menu li {
     width: 100%;
 }
 
+header .nav-bar .dropdown-item {
+    display: block;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    transition: var(--transition-colors);
+    text-decoration: none;
+    background: none;
+}
+
+header .nav-bar .dropdown-item:hover {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-secondary);
+}

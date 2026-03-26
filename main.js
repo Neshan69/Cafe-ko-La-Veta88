@@ -1,0 +1,139 @@
+/* ============================================================
+   NAVBAR — Scroll, Hamburger, Active Link, Search
+   ============================================================ */
+
+   document.addEventListener('DOMContentLoaded', () => {
+
+    const header    = document.querySelector('header');
+    const hamburger = document.getElementById('hamburger-toggle');
+    const navBar    = document.getElementById('navigation');
+    const searchBar = document.querySelector('.search-bar');
+    const navLinks  = document.querySelectorAll('#navigation ul > li > a:not(.dropdown-toggle), #navigation .dropdown-item');
+
+    if (!header || !hamburger || !navBar) {
+        console.warn('Navbar: required elements not found.');
+        return;
+    }
+
+    // ----------------------------------------------------------
+    // 1. SCROLL — .scrolled on header
+    // ----------------------------------------------------------
+    const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once
+
+    // ----------------------------------------------------------
+    // 2. HAMBURGER toggle
+    // ----------------------------------------------------------
+    const isMenuOpen = () => hamburger.classList.contains('open');
+
+    const openMenu = () => {
+        hamburger.classList.add('open');
+        navBar.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close navigation menu');
+    };
+
+    const closeMenu = () => {
+        hamburger.classList.remove('open');
+        navBar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+    };
+
+    const toggleMenu = () => isMenuOpen() ? closeMenu() : openMenu();
+
+    // click
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // keyboard — Enter / Space
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+        }
+    });
+
+    // close on outside click
+    document.addEventListener('click', (e) => {
+        if (isMenuOpen() && !header.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // close when a nav link is clicked (mobile UX)
+    document.querySelectorAll('#navigation ul > li > a:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) closeMenu();
+        });
+    });
+
+    // ----------------------------------------------------------
+    // 3. ACTIVE LINK — highlight on scroll
+    // ----------------------------------------------------------
+    const sections = document.querySelectorAll('main section[id]');
+    const mainNavLinks = document.querySelectorAll('#navigation ul > li > a:not(.dropdown-toggle)');
+
+    const highlightLink = () => {
+        let current = '';
+        const scrollY = window.scrollY;
+        const offset  = header.offsetHeight + 24;
+
+        sections.forEach(section => {
+            if (scrollY >= section.offsetTop - offset) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        mainNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', highlightLink, { passive: true });
+    highlightLink();
+
+    // ----------------------------------------------------------
+    // 4. SEARCH
+    // ----------------------------------------------------------
+    if (searchBar) {
+        const searchInput = searchBar.querySelector('input');
+        const searchBtn   = searchBar.querySelector('button[type="submit"]');
+
+        const runSearch = () => {
+            const query = searchInput?.value.trim();
+            if (query) {
+                console.log('Search:', query);
+                // 👉 plug your search logic here
+            }
+        };
+
+        searchBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            runSearch();
+        });
+
+        searchInput?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                runSearch();
+            }
+        });
+    }
+
+    // ----------------------------------------------------------
+    // 5. RESIZE — close mobile menu if resized to desktop
+    // ----------------------------------------------------------
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
+
+});

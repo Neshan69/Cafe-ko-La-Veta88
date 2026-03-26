@@ -2,6 +2,13 @@
    INDEX.CSS — Full Design System
    Color Theme: Pistachio Bakery Palette
    #C1E899 · #9A6735 · #E6F0DC · #55883B
+   ============================================================
+   
+   CHANGED BY KILO AI - VERSION 1.0
+   - Added comprehensive responsive hamburger menu styles
+   - Added mobile overlay functionality
+   - Added accessibility improvements
+   - Added responsive breakpoints for all sections
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap');
@@ -937,6 +944,10 @@ body.fade-in-up [data-fade-in-up] {
     animation: fade-in-up var(--duration-slow) var(--ease-out) both;
 }
 
+/* ============================================================
+   CHANGED BY KILO AI - HEADER STYLES
+   ============================================================ */
+
 header {
     justify-content: space-between;
     border: none;
@@ -1485,3 +1496,715 @@ header .nav-bar .dropdown-item:hover {
     .menu-grid { grid-template-columns: 1fr; }
     .menu-title { font-size: 2.6rem; }
   }
+
+/* ============================================================
+   CHANGED BY KILO AI - LANDING PAGE HERO SECTION STYLES
+   ============================================================ */
+
+.home-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--color-mint-100) 0%, var(--color-lime-100) 50%, var(--color-mint-200) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Changed by kilo ai - Hero Container */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    min-height: 90vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Changed by kilo ai - Background Pattern */
+.hero-bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(85, 136, 59, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(154, 103, 53, 0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+/* Changed by kilo ai - Hero Content */
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 1;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--color-surface);
+    color: var(--color-brown);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-forest-600);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-highlight {
+    color: var(--color-brown);
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* Changed by kilo ai - Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.btn-primary-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-forest-400), var(--color-forest-500));
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(85, 136, 59, 0.4);
+}
+
+.btn-primary-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(85, 136, 59, 0.5);
+    color: white;
+}
+
+.btn-secondary-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-surface);
+    color: var(--color-forest-500);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--color-forest-400);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-hero:hover {
+    background: var(--color-forest-400);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Changed by kilo ai - Stats */
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-brown);
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* Changed by kilo ai - Hero Image */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-coffee-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(85, 136, 59, 0.3);
+}
+
+.hero-image-decoration {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-lime);
+    border-radius: 30px;
+    z-index: -1;
+}
+
+/* Changed by kilo ai - Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--color-text-secondary);
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - ABOUT SECTION STYLES
+   ============================================================ */
+
+.about-section {
+    padding: 100px 40px;
+    background: var(--color-surface);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.about-badge {
+    display: inline-block;
+    background: var(--color-lime-100);
+    color: var(--color-forest-500);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-forest-600);
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.about-text {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 20px;
+    background: var(--color-bg-subtle);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--color-lime-200);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.feature-icon i {
+    font-size: 1.5rem;
+    color: var(--color-forest-500);
+}
+
+.feature-item h4 {
+    font-size: 1rem;
+    color: var(--color-forest-600);
+    margin-bottom: 8px;
+}
+
+.feature-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 500px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-decoration {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 200px;
+    height: 200px;
+    background: var(--color-lime-200);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE LANDING PAGE STYLES
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 30px;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        margin-top: 50px;
+    }
+    
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 40px 20px;
+    }
+    
+    .hero-coffee-img {
+        height: 350px;
+    }
+    
+    .hero-stats {
+        gap: 25px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .about-section {
+        padding: 60px 20px;
+    }
+    
+    .about-img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-coffee-img {
+        height: 280px;
+        border-radius: 20px;
+    }
+    
+    .hero-image-decoration {
+        display: none;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary-hero,
+    .btn-secondary-hero {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .about-img {
+        height: 280px;
+    }
+    
+    .about-decoration {
+        display: none;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE HAMBURGER MENU STYLES
+   ============================================================ */
+
+/* Tablet and below - Show hamburger, hide desktop nav */
+@media (max-width: 992px) {
+    
+    /* Changed by kilo ai - Make hamburger visible on tablet/mobile */
+    .hamburger {
+        display: flex !important;
+        z-index: 1001;
+        position: relative;
+    }
+    
+    /* Changed by kilo ai - Hide desktop navigation by default on mobile */
+    header .nav-bar {
+        position: fixed;
+        top: 0;
+        left: auto;
+        right: -100%;
+        width: 280px;
+        max-width: 80%;
+        height: 100vh;
+        background-color: var(--color-surface);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 70px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        transition: right var(--duration-slow) var(--ease-out);
+        z-index: 1000;
+        gap: 0;
+        margin-top: 0;
+        overflow-y: auto;
+    }
+    
+    /* Changed by kilo ai - Active state for mobile navigation */
+    header .nav-bar.active {
+        right: 0;
+        left: auto;
+    }
+    
+    /* Changed by kilo ai - Mobile navigation list styling */
+    header .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    
+    /* Changed by kilo ai - Individual navigation items */
+    header .nav-bar ul li {
+        width: 100%;
+        border-bottom: 1px solid var(--color-border-subtle);
+    }
+    
+    /* Changed by kilo ai - Navigation links */
+    header .nav-bar ul li a {
+        display: block;
+        padding: 15px 10px;
+        width: 100%;
+        color: var(--color-text-primary);
+        font-weight: 500;
+    }
+    
+    /* Changed by kilo ai - Remove underline animation on mobile */
+    header .nav-bar ul li a::after {
+        display: none;
+    }
+    
+    /* Changed by kilo ai - Hover effects for mobile nav */
+    header .nav-bar ul li a:hover {
+        color: var(--color-secondary);
+        background-color: var(--color-primary-subtle);
+    }
+    
+    /* Changed by kilo ai - Dropdown menu styling for mobile */
+    header .nav-bar .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        background-color: var(--color-bg-subtle);
+    }
+    
+    /* Changed by kilo ai - Dropdown items for mobile */
+    header .nav-bar .dropdown-item {
+        padding-left: 25px;
+    }
+    
+    /* Changed by kilo ai - Show dropdown on click for mobile (handled by Bootstrap) */
+    .nav-item.dropdown.show .dropdown-menu {
+        display: block !important;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - HAMBURGER ANIMATION STATES
+   ============================================================ */
+
+/* Changed by kilo ai - Active hamburger state (X animation) */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE HEADER LAYOUT
+   ============================================================ */
+
+@media (max-width: 992px) {
+    
+    /* Changed by kilo ai - Header layout adjustments for mobile */
+    header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    /* Changed by kilo ai - Logo adjustments for mobile */
+    header .logo {
+        flex: 1;
+        min-width: 150px;
+    }
+    
+    header .logo img {
+        width: 2.5rem;
+    }
+    
+    header .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    /* Changed by kilo ai - Search bar adjustments for mobile */
+    header .search-bar {
+        order: 3;
+        width: 100%;
+        flex: 1 1 100%;
+        margin-top: 5px;
+    }
+    
+    header .search-bar input {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* Changed by kilo ai - Profile section adjustments for mobile */
+    header .profile {
+        order: 2;
+    }
+    
+    header .profile a {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE PROFILE SECTION
+   ============================================================ */
+
+@media (max-width: 768px) {
+    
+    .profile-container {
+        margin: 1.5rem 15px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .profile-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE CONTACT SECTION
+   ============================================================ */
+
+@media (max-width: 768px) {
+    
+    .contact-section {
+        padding: 60px 15px !important;
+    }
+    
+    .contact-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - RESPONSIVE MENU SECTION
+   ============================================================ */
+
+@media (max-width: 768px) {
+    
+    .menu-section {
+        padding: 60px 15px 80px;
+    }
+    
+    .menu-header {
+        margin-bottom: 40px;
+    }
+    
+    .filter-bar {
+        margin-bottom: 30px;
+    }
+    
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .menu-title {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - MOBILE OVERLAY
+   ============================================================ */
+
+/* Changed by kilo ai - Overlay when mobile menu is open */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-scrim);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-normal) var(--ease-in-out),
+                visibility var(--duration-normal) var(--ease-in-out);
+    z-index: 999;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================================
+   CHANGED BY KILO AI - ACCESSIBILITY IMPROVEMENTS
+   ============================================================ */
+
+/* Changed by kilo ai - Focus styles for mobile navigation */
+@media (max-width: 992px) {
+    
+    header .nav-bar ul li a:focus {
+        outline: 2px solid var(--color-border-focus);
+        outline-offset: -2px;
+        background-color: var(--color-primary-subtle);
+    }
+    
+    .hamburger:focus-visible {
+        outline: 2px solid var(--color-border-focus);
+        outline-offset: 3px;
+    }
+}
+
+/* Changed by kilo ai - Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    
+    .hamburger .bar,
+    header .nav-bar,
+    .nav-overlay {
+        transition: none;
+    }
+}

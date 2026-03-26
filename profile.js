@@ -1,6 +1,71 @@
-// Profile section toggle logic with enhanced styles and menu.css color theme & modern font upgrades
+/**
+ * ============================================================
+ * profile.js - Profile Section Functionality
+ * ============================================================
+ * Changed by kilo ai
+ * 
+ * This file handles:
+ * - Profile section toggle logic
+ * - Profile form submission
+ * - Preloader functionality
+ * ============================================================
+ */
 
+// Profile section toggle logic with enhanced styles and menu.css color theme & modern font upgrades
 document.addEventListener("DOMContentLoaded", function () {
+    
+    // ============================================================
+    // PROFILE FORM SUBMISSION (from profile.html)
+    // ============================================================
+    
+    const profileForm = document.getElementById('profile-form');
+    if (profileForm) {
+        // Replace with your real email address
+        const RECEIVER_EMAIL = "your@email.com"; // TODO: change this to your email
+
+        profileForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Grab form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // Prepare message
+            const subject = encodeURIComponent("New User Registration Notification");
+            const body = encodeURIComponent(
+                `A user has registered on your site:\n\n` +
+                `Name: ${name}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n\n` +
+                `-- End of details --`
+            );
+
+            // Show alert for demo
+            alert(
+                "This demo can't automatically email your info to the admin.\n\nTo enable this, connect a service like EmailJS, SMTP server, or build a backend endpoint for sending email on submit.\n\nHere's the info you would receive:\n\n" +
+                `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n[Password hidden for security]`
+            );
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+        });
+    }
+    
+    // Hide preloader when page is fully loaded
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', function() {
+            preloader.classList.add('hidden');
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 400); // Match the transition duration
+        });
+    }
+    
+    // ============================================================
+    // PROFILE SECTION TOGGLE (for index.html embedded profile)
+    // ============================================================
+    
     // Get the Profile nav button & Profile Section
     const profileLink = document.querySelector("header .profile a[href='#profile-section']");
     const profileSection = document.getElementById("profile-section");

@@ -18,7 +18,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Custom CSS (optional, example, you may remove/create your own style.css) -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -26,7 +26,6 @@
         <!-- this is for header -->
          <div class="logo">
             <button class="re-load" type="button">
-
                 <img src="Untitled design.png" alt="logo">
                 <h1>La-Veta88</h1>
             </button>
@@ -36,13 +35,21 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#blog">blog</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#services">Services</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="#preorder">Pre-order</a></li>
+                        <li><a class="dropdown-item" href="#classes">Classes</a></li>
+                    </ul>
+                </li>
             </ul>
          </nav>
          <div class="profile">
-            <a href="profile-section"><i class="fa-solid fa-user">Profile</i></a>
+            <a href="#profile-section"><i class="fa-solid fa-user"></i> Profile</a>
          </div>
     </header>
     <main>
@@ -52,108 +59,104 @@
 
          </section>
 
-
          <!-- about-section -->
          <section id="about" class="about-section">
 
          </section>
-         
-
-
 
          <!-- contact-section -->
-         <section id="contact" class="contact-section">
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="section-subtitle">Get In Touch</span>
-                <h2 class="display-5 fw-bold mt-2">Contact <span class="text-warning">Us</span></h2>
-                <p class="lead text-muted mx-auto" style="max-width: 600px;">We'd love to hear from you!</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-8 mx-auto">
-                    <form id="contactForm" class="contact-form">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="subject" class="form-label">Subject</label>
-                                <select class="form-select" id="subject">
-                                    <option value="General">General Inquiry</option>
-                                    <option value="Reservation">Table Reservation</option>
-                                    <option value="Feedback">Feedback</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" rows="4" required></textarea>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-warning btn-lg px-5">
-                                    <i class="bi bi-send me-2"></i>Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+         <section id="contact" class="contact-section py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="display-5 fw-bold mt-2">Contact <span class="text-warning">Us</span></h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 600px;">We'd love to hear from you!</p>
                 </div>
-            </div>
-            
-            <!-- Contact Info Cards -->
-            <div class="row g-4 mt-5">
-                <div class="col-md-4">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
-                        </div>
-                        <h5>Location</h5>
-                        <p class="mb-0">New Road, Kathmandu</p>
-                        <p>Nepal</p>
+                
+                <div class="row g-4">
+                    <div class="col-lg-8 mx-auto">
+                        <form id="contactForm" class="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select class="form-select" id="subject">
+                                        <option value="General">General Inquiry</option>
+                                        <option value="Reservation">Table Reservation</option>
+                                        <option value="Feedback">Feedback</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-warning btn-lg px-5">
+                                        <i class="bi bi-send me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">
-                            <i class="bi bi-telephone-fill"></i>
+                
+                <!-- Contact Info Cards -->
+                <div class="row g-4 mt-5">
+                    <div class="col-md-4">
+                        <div class="contact-card text-center">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <h5>Location</h5>
+                            <p class="mb-0">New Road, Kathmandu</p>
+                            <p>Nepal</p>
                         </div>
-                        <h5>Phone</h5>
-                        <p class="mb-0">+977 01-1234567</p>
-                        <p>+977 9841234567</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon">
-                            <i class="bi bi-envelope-fill"></i>
+                    <div class="col-md-4">
+                        <div class="contact-card text-center">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <h5>Phone</h5>
+                            <p class="mb-0">+977 01-1234567</p>
+                            <p>+977 9841234567</p>
                         </div>
-                        <h5>Email</h5>
-                        <p class="mb-0">info@kanchhikhobhatti.com</p>
-                        <p>orders@kanchhikhobhatti.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-card text-center">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <p class="mb-0">info@kanchhikhobhatti.com</p>
+                            <p>orders@kanchhikhobhatti.com</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-         </section>
-
-
+        </section>
+        
+        <!-- menu-section -->
+        <section id="menu" class="menu-section">
+            <h1>this is for aashika</h1>
+        </section>
          <!-- blog-section -->
          <section id="blog" class="blog-section">
-
+<h1>
+    this is for blogs
+</h1>
          </section>
-
-
 
          <!-- services-section -->
          <section id="services" class="services-section">
@@ -164,6 +167,7 @@
     <!-- footer-section -->
      <footer>
         <h1>This is footer section</h1>
+        <h1>this is for amisha</h1>
      </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Optionally, add your own custom JS below -->

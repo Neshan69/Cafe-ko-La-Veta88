@@ -193,3 +193,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/* ============================================================
+   REVIEW: PRELOADER — Fade out after page is ready — Kilo AI
+   Shows for a minimum of 1.2s (branded feel), then hides
+   when window.load fires (all resources loaded).
+   ============================================================ */
+(function () {
+    var preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    var MIN_SHOW_MS = 1200;
+    var startTime = Date.now();
+
+    function hidePreloader() {
+        var elapsed = Date.now() - startTime;
+        var remaining = Math.max(0, MIN_SHOW_MS - elapsed);
+
+        setTimeout(function () {
+            preloader.classList.add('hidden');
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 600);
+        }, remaining);
+    }
+
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
+    }
+})();

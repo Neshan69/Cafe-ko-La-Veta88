@@ -2435,9 +2435,9 @@ h1, h2 {
            overflow-y: auto;
        }
        
-        /* Created by Kilo */
-        /* Changed by kilo ai - Active state for mobile navigation */
-        header .nav-bar.active {
+        /* REVIEW: Active state for mobile navigation (.open aligns with main.js, .active with hamburger.js) — Kilo AI */
+        header .nav-bar.active,
+        header .nav-bar.open {
             display: flex;
             right: 0;
             left: auto;
@@ -2715,35 +2715,60 @@ h1, h2 {
    }
    
    /* --- Profile Form Styles (from index.html & profile.html) --- */
-   /* Preloader Styles */
+
+   /* ============================================================
+      REVIEW: Preloader Styles — uses correct design tokens — Kilo AI
+      ============================================================ */
    .preloader {
        position: fixed;
        top: 0;
        left: 0;
        width: 100%;
        height: 100%;
-       background: var(--surface, #FFFAF7);
+       background: linear-gradient(135deg, #f5faf0 0%, #e6f0dc 100%);
        display: flex;
        justify-content: center;
        align-items: center;
-       z-index: 9999;
-       transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+       z-index: 99999;
+       transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
    }
+
    .preloader.hidden {
        opacity: 0;
        visibility: hidden;
    }
-   .preloader-spinner {
-       width: 50px;
-       height: 50px;
-       border: 4px solid var(--border, #EDD5C0);
-       border-top: 4px solid var(--primary, #B86B28);
-       border-radius: 50%;
-       animation: spin 1s linear infinite;
+
+   .preloader-content {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 16px;
    }
-   @keyframes spin {
-       0% { transform: rotate(0deg); }
-       100% { transform: rotate(360deg); }
+
+   .preloader-ring {
+       width: 52px;
+       height: 52px;
+       border: 4px solid var(--color-border-subtle, #d1e4c4);
+       border-top-color: var(--color-accent, #9A6735);
+       border-radius: 50%;
+       animation: preloader-spin 0.8s linear infinite;
+   }
+
+   .preloader-brand {
+       font-family: var(--font-display, 'DM Serif Display', serif);
+       font-size: 1.4rem;
+       color: var(--color-forest-500, #55883B);
+       letter-spacing: 0.02em;
+       animation: preloader-pulse 1.5s ease-in-out infinite;
+   }
+
+   @keyframes preloader-spin {
+       to { transform: rotate(360deg); }
+   }
+
+   @keyframes preloader-pulse {
+       0%, 100% { opacity: 1; }
+       50% { opacity: 0.5; }
    }
    
    .profile-container {

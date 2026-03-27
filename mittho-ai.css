@@ -8,7 +8,7 @@
   --chat-width: clamp(300px, 90vw, 380px);
 }
 
-/* ── FLOATING BUTTON ── */
+/* ── FLOATING BUTTON (REVIEW: fixed position must not be overridden — Kilo AI) ── */
 .mittho-fab {
   position: fixed;
   bottom: max(20px, env(safe-area-inset-bottom));
@@ -30,7 +30,7 @@
               box-shadow 200ms ease;
 }
 
-/* ── PANEL ── */
+/* ── PANEL (REVIEW: added explicit z-index to match FAB layer — Kilo AI) ── */
 .mittho-panel {
   position: fixed;
   bottom: 104px;
@@ -47,6 +47,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: var(--z-top, 10000);
 
   opacity: 0;
   visibility: hidden;
@@ -172,10 +173,337 @@
   }
 }
 
-/* ── REDUCED MOTION ── */
+/* ── TOAST (REVIEW: added missing toast styles — Kilo AI) ── */
+.mittho-toast {
+  position: fixed;
+  bottom: max(96px, calc(env(safe-area-inset-bottom) + 76px));
+  right: max(24px, env(safe-area-inset-right));
+  z-index: var(--z-top, 10000);
+  background: #2c4c1e;
+  color: #fff;
+  padding: 0.65rem 1.1rem;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  max-width: 320px;
+}
+
+.mittho-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ── TYPING INDICATOR (REVIEW: added missing typing dots — Kilo AI) ── */
+.mittho-typing .mittho-bubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.6rem 0.9rem;
+}
+
+.mittho-dot {
+  width: 7px;
+  height: 7px;
+  background: #9A6735;
+  border-radius: 50%;
+  animation: mittho-dot-bounce 1.2s ease-in-out infinite;
+}
+
+.mittho-dot:nth-child(2) { animation-delay: 0.15s; }
+.mittho-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes mittho-dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ── STATUS DOT ── */
+.mittho-status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #4ade80;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+/* ── HEADER LEFT ── */
+.mittho-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mittho-avatar {
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.15);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mittho-header-info h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.mittho-header-info span {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+/* ── HEADER ACTIONS ── */
+.mittho-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.mittho-btn-icon {
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.mittho-btn-icon:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ── MESSAGE LAYOUT ── */
+.mittho-msg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.mittho-msg.user {
+  flex-direction: row-reverse;
+}
+
+.mittho-msg-avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mittho-bubble-time {
+  font-size: 0.65rem;
+  color: #9ca3af;
+  margin-top: 2px;
+  padding: 0 4px;
+}
+
+.mittho-msg.user .mittho-bubble-time {
+  text-align: right;
+}
+
+/* ── WELCOME BANNER ── */
+.mittho-welcome {
+  text-align: center;
+  padding: 1.2rem 0.5rem 0.5rem;
+}
+
+.mittho-welcome-emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.mittho-welcome h5 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #2c4c1e;
+}
+
+.mittho-welcome p {
+  font-size: 0.8rem;
+  color: #7a8c6e;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+/* ── CHIPS ── */
+.mittho-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.mittho-chip {
+  background: #e6f0dc;
+  border: 1px solid #c1e899;
+  border-radius: 100px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  color: #2c4c1e;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.mittho-chip:hover {
+  background: #c1e899;
+  transform: scale(1.04);
+}
+
+/* ── SEND BUTTON ── */
+.mittho-send-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #55883B;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+  align-self: flex-end;
+}
+
+.mittho-send-btn:hover {
+  background: #3f6a2b;
+  transform: scale(1.08);
+}
+
+.mittho-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── FOOTER BRAND ── */
+.mittho-footer-brand {
+  text-align: center;
+  padding: 0.4rem;
+  font-size: 0.65rem;
+  color: #9ca3af;
+  border-top: 1px solid #e6f0dc;
+}
+
+.mittho-footer-brand a {
+  color: #9A6735;
+  text-decoration: none;
+}
+
+.mittho-footer-brand a:hover {
+  text-decoration: underline;
+}
+
+/* ── TEXTAREA WRAP ── */
+.mittho-textarea-wrap {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mittho-textarea {
+  flex: 1;
+  min-height: 42px;
+  max-height: 120px;
+  border-radius: 12px;
+  border: 1.5px solid #C1E899;
+  padding: 0.5rem 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  resize: none;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.mittho-textarea:focus {
+  border-color: #55883B;
+}
+
+/* ── FAB ICONS (REVIEW: separate from .mittho-fab to avoid overriding position — Kilo AI) ── */
+
+.mittho-fab-icon {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mittho-fab .icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.mittho-fab.open .icon-open {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.mittho-fab.open .icon-close {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* ── NOTIFICATION DOT ── */
+.mittho-notif-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.mittho-notif-dot.hidden {
+  opacity: 0;
+}
+
+/* ── REDUCED MOTION (REVIEW: scoped to mittho widget only — Kilo AI) ── */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .mittho-fab,
+  .mittho-panel,
+  .mittho-bubble,
+  .mittho-msg,
+  .mittho-chip,
+  .mittho-toast {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ── MOBILE TOAST (REVIEW: toast repositioning on small screens — Kilo AI) ── */
+@media (max-width: 480px) {
+  .mittho-toast {
+    right: 8px;
+    left: 8px;
+    max-width: none;
+    bottom: 80px;
   }
 }

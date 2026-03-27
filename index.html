@@ -35,10 +35,20 @@
     <script src="profile.js" defer></script>
     <script src="contact.js" defer></script>
     <script src="dropdown.js" defer></script>
+
+    <!-- REVIEW: Mittho AI Chat Widget styles (moved inside head by Kilo AI) — Kilo AI -->
+    <link rel="stylesheet" href="mittho-ai.css">
 </head>
-<link rel="stylesheet" href="mittho-ai.css">
 <body>
-    <!-- CHANGED BY KILO AI - Header section with responsive hamburger menu -->
+    <!-- REVIEW: Preloader — shows on page load, fades out after content is ready — Kilo AI -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-ring"></div>
+            <span class="preloader-brand">La-Veta88</span>
+        </div>
+    </div>
+
+    <!-- REVIEW: CHANGED BY KILO AI - Header section with responsive hamburger menu -->
     <header>
         <!-- this is for header -->
         <div class="logo">
@@ -125,7 +135,8 @@
         </div>
     </header>
     <!-- CHANGED BY KILO AI - Profile section with Login/Register tabs -->
-     <section class="profile" id="profile-section">
+    <!-- REVIEW: Profile section hidden by default (display:none prevents flash before JS loads) — Kilo AI -->
+     <section class="profile" id="profile-section" style="display:none;">
         <div class="profile-container">
             <!-- Tab Switcher -->
             <div class="auth-tabs">
@@ -634,8 +645,81 @@
 
               </div>
         </section>
-        <section id="location" class="location-section">
-            <h1>this is for location</h1>
+        <section id="location" class="location-section" style="padding: 2.5rem 0; background: #F7FBF4;">
+            <div style="max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+                <div 
+                  style="
+                    background: linear-gradient(135deg, #C1E899 0%, #9A6735 100%);
+                    border-radius: 1.25rem;
+                    padding: 2.2rem 1.8rem 1.2rem 1.8rem;
+                    box-shadow: 0 6px 26px 0 rgba(154,103,53,0.15);
+                    color: #235021;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    position: relative;
+                    width: 100%;
+                    min-width: 0;
+                    margin-bottom: 1.3rem;
+                    transition: transform .35s cubic-bezier(.35,1.26,.58,1);
+                    cursor: pointer;
+                    overflow: hidden;
+                  "
+                  onmouseover="this.style.transform='translateY(-5px) scale(1.016)'"
+                  onmouseout="this.style.transform=''"
+                >
+                <h6 style="justify-content: centre; text-align: centre; margin-left: 100px; padding: 2px;" >OUR LOCATIONS</h6>
+                  <div style="font-size: .99em; letter-spacing:.07em; font-weight: 600; color: #7b5032; margin-bottom:.1rem;">
+                    😊 curated by <span style="color:#55883B;">@kibo.tamak</span>
+                  </div>
+                  <h2 style="font-size: 1.7rem; font-family: var(--font-display, 'DM Serif Display',serif); font-weight: 700; margin-bottom: .7rem; color: #254800;">
+                    Our Place is a <span style="color:#9A6735;">Cafe</span>
+                  </h2>
+                  <div style="font-size: 1.07rem; display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4em;">
+                    <span style="font-size:1.45rem;">📍</span> Baneswor Height
+                  </div>
+                  <div style="font-size: 1.07rem; display:flex; align-items:center; gap:0.5rem; margin-bottom:.4em;">
+                    <span style="font-size:1.45rem;">📍</span> Bhanimandal, Lalitpur
+                    <span style="background: #fff2e3; border-radius: .6em; padding: 2px 11px; font-size: .95em; color: #9A6735; margin-left:5px;">@kaho8.88</span>
+                  </div>
+                  <a 
+                    href="https://maps.app.goo.gl/hdHVbGGmqgXgCPzh8?g_st=com.google.maps.preview.copy" 
+                    target="_blank" 
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      background: #155C2F;
+                      color: #fff;
+                      padding:.62em 1.25em;
+                      border-radius: 60px;
+                      font-weight:650;
+                      text-decoration: none;
+                      margin-top:1.1em;
+                      font-size:1.1em;
+                      letter-spacing:0.02em;
+                      transition: background .23s;
+                      box-shadow:0 2px 9px rgba(85,136,59,0.21);
+                    "
+                      onmouseover="this.style.background='#3D8036'"
+                      onmouseout="this.style.background='#155C2F'"
+                  >
+                    <span style="font-size: 1.15em; margin-right:.48em;">🗺️</span> Open in Maps
+                  </a>
+                </div>
+            </div>
+            <style>
+            @media (max-width: 600px) {
+                #location .location-section > div {
+                    padding: 0 8px;
+                }
+                #location .location-section > div > div {
+                    padding: 1.15rem 0.62rem 0.75rem 0.62rem !important;
+                }
+                #location .location-section h2 {
+                    font-size: 1.1rem !important;
+                }
+            }
+            </style>
         </section>
         <!-- blog-section -->
         <section id="blog" class="blog-section">

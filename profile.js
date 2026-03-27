@@ -139,19 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ============================================================
-    // PRELOADER
-    // ============================================================
-
-    var preloader = document.getElementById("preloader");
-    if (preloader) {
-        window.addEventListener("load", function () {
-            preloader.classList.add("hidden");
-            setTimeout(function () {
-                preloader.style.display = "none";
-            }, 400);
-        });
-    }
-
+    // PRELOADER — REVIEW: Moved to main.js for min-show-time logic — Kilo AI
     // ============================================================
     // PROFILE SECTION OVERLAY TOGGLE (index.html)
     // ============================================================

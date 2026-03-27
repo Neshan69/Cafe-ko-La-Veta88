@@ -12,11 +12,46 @@
     botEmoji:      '☕',
     userEmoji:     '👤',
     storageKey:    'mittho_chat_history',
-    maxHistory:    40,         // max messages to keep in localStorage
-    typingDelay:   { min: 600, max: 1400 }, // ms range for typing simulation
+    maxHistory:    40,
+    typingDelay:   { min: 600, max: 1400 },
     autoGreet:     true,
-    greetDelay:    1200,       // ms before auto-greeting on first open
+    greetDelay:    1200,
   };
+
+  /* ── CANNED JOKES ── */
+  const CANNED_JOKES = [
+    "Why did the coffee file a police report? It got mugged! 😆",
+    "What does a coffee say to its date? Words cannot espresso how much you mean to me! ☕❤️",
+    "How does Moses make his coffee? Hebrews it.",
+    "Why do we give coffee breaks at work? So the grounds can settle.",
+    "Did you hear about the cow who gave up coffee? She swore off de-calf!",
+    "What do you call a sad cup of coffee? A depresso.",
+    "Why is coffee always at the house party? Because it’s the latte the party!",
+    "What’s Mr. Coffee’s favorite film? A Mug’s Life.",
+    "What did the caffeine addict name his cats? Cream and Sugar.",
+    "What kind of coffee was served on the Titanic? Sanka!",
+    "Why doesn’t coffee gossip? Because it can be a little bitter.",
+    "How does coffee start its morning? By getting grounded.",
+    "Why did the espresso keep checking his watch? Because he was pressed for time.",
+    "What did the coffee say to the sugar? You make life sweet!",
+    "Why did the coffee go to school? To improve its grounds.",
+    "Knock knock. Who's there? Bean. Bean who? Bean a while since you had coffee, huh?",
+    "What do baristas do when they’re bored? They espresso themselves.",
+    "Did you hear the joke about the coffee? Never mind, it’s a little weak.",
+    "Why did the coffee go to therapy? It had a latte problems.",
+    "How is studying like drinking coffee? It's all about the grind.",
+    "Why did the coffee get promoted? It showed a latte initiative.",
+    "What do you get when you cross coffee with ice cream? Affogato!",
+    "Why do coffee beans not get into arguments? Because they already know how to espresso themselves.",
+    "Why did the coffee bean stay at home? To avoid a latte trouble.",
+    "What's a coffee's favorite spell? Es-press-o Patronum!",
+    "Why does coffee always arrive on time? Because it doesn’t like to be a-latte.",
+    "Why is coffee bad at conversation? It constantly gets filtered.",
+    "Barista: Your cup's too small! Customer: That's the short and tall of it!",
+    "How are you like my coffee? Hot and keeps me awake! 😉",
+    "Why does everyone love coffee at the café? Because it brews happiness!",
+    // more can be added!
+  ];
 
   /* ── CANNED RESPONSES (offline / fallback) ── */
   const CANNED = {
@@ -54,6 +89,21 @@
     events: [
       "We host private and corporate events with custom menus and professional staff. 🎉 Visit the <a href='#services'>Services section</a> or <a href='#contact'>contact us</a> for packages!",
     ],
+    jokes: CANNED_JOKES,
+    greetings: [
+      "Namaste! 👋 How can I help today?",
+      "Hello there! ☀️ What can I do for you?",
+      "Good morning! 🌞 Ready for a great cup of coffee?",
+      "Good afternoon! Hope you're having a wonderful day at La-Veta88.",
+      "Good evening! Relax and let me know if you need anything.",
+      "Hey! How can I assist you? ☕",
+      "Namaskar! Welcome to La-Veta88 Café.",
+      "Hi! 😊 How may I help you today?",
+      "Warm greetings from La-Veta88! 🌱",
+      "Salutations! Need info about our menu or specials?",
+      "Mittho (मिठो) welcome! Ask away.",
+      // you can add more
+    ],
     default: [
       "Great question! For the best answer, please <a href='#contact'>contact our team</a> directly — they'd love to help. ☕",
       "I'm not sure about that one, but our staff can help! Reach us at <a href='#contact'>the contact form</a> or call +977 01-1234567. 😊",
@@ -69,6 +119,7 @@
     { label: '🛍️ Pre-order',     query: 'How do I pre-order?' },
     { label: '📞 Contact',       query: 'How can I contact you?' },
     { label: '🌱 Vegan Options', query: 'Do you have vegan options?' },
+    { label: '😂 Tell me a joke', query: 'Tell me a joke' }
   ];
 
   /* ── HELPERS ── */
@@ -81,9 +132,20 @@
   }
 
   function matchResponse(text) {
-    const t = text.toLowerCase();
-    if (/menu|food|drink|coffee|latte|espresso|tea|pastry|cake|croissant|item|order/.test(t))  return pickRandom(CANNED.menu);
-    if (/hour|open|close|time|when/.test(t))      return pickRandom(CANNED.hours);
+    // GREETING detection (namaste, hello, hi, good morning/afternoon/evening/night, etc)
+    const t = text.trim().toLowerCase();
+
+    if (/(^|\W)(namaste|namaskar|hello|hi|hey|hlo|yo+|सुप्रभात|good ?morning|good ?afternoon|good ?evening|good ?night|greetings|salam|salutations|hola|bonjour|welcome|mittho)([^\w]|$)/i.test(t)) {
+      return pickRandom(CANNED.greetings);
+    }
+
+    // Tell me a joke or joke request
+    if (/(tell me a joke|joke|funny|another one|hansau|make me laugh|kura gar|memes?|chutkila)/i.test(t)) {
+      return pickRandom(CANNED.jokes);
+    }
+
+    if (/menu|food|drink|coffee|latte|espresso|tea|pastry|cake|croissant|item|order/.test(t))    return pickRandom(CANNED.menu);
+    if (/hour|open|close|time|when/.test(t))          return pickRandom(CANNED.hours);
     if (/locat|address|where|find|map|direction/.test(t)) return pickRandom(CANNED.location);
     if (/pre.?order|preorder|advance|pickup/.test(t))     return pickRandom(CANNED.preorder);
     if (/class|workshop|learn|bak|cook|barista/.test(t))  return pickRandom(CANNED.classes);
@@ -93,6 +155,12 @@
     if (/vegan|plant|dairy.free|oat|lactose/.test(t))     return pickRandom(CANNED.vegan);
     if (/about|story|history|who are|what is la/.test(t)) return pickRandom(CANNED.about);
     if (/event|cater|party|corporate|host|private/.test(t)) return pickRandom(CANNED.events);
+
+    // If text directly asks for a joke (anywhere in sentence)
+    if (/joke|chutkila|funny|make me laugh|another one|hansau|memes?/.test(t)) {
+      return pickRandom(CANNED.jokes);
+    }
+
     return pickRandom(CANNED.default);
   }
 
@@ -100,7 +168,7 @@
   let isOpen     = false;
   let isTyping   = false;
   let hasGreeted = false;
-  let messageHistory = [];   // { role, text, time }
+  let messageHistory = [];
 
   /* ── DOM REFERENCES (set after init) ── */
   let fab, panel, messagesEl, textarea, sendBtn, toastEl;
@@ -341,7 +409,7 @@
     welcome.innerHTML = `
       <span class="mittho-welcome-emoji">☕</span>
       <h5>Welcome to La-Veta88!</h5>
-      <p>Ask me anything about our menu, hours, location, or services. I'm here to help!</p>
+      <p>Ask me anything about our menu, hours, location, or services. I'm here to help! You can say "hello" or even "tell me a joke!"</p>
       <div class="mittho-suggestions">${chipHTML}</div>
     `;
     messagesEl.appendChild(welcome);
@@ -354,7 +422,7 @@
         <textarea
           class="mittho-textarea"
           id="mittho-textarea"
-          placeholder="Ask about our menu, hours…"
+          placeholder="Ask about our menu, or just say Namaste…"
           rows="1"
           aria-label="Type a message"
           autocomplete="off"
@@ -472,7 +540,7 @@
     if (!seenHint) {
       setTimeout(() => {
         if (!isOpen) {
-          showToast('☕ Hi! Ask me anything about La-Veta88!', 3500);
+          showToast('☕ Hi! Ask me anything about La-Veta88 — or just say Namaste!', 3500);
           localStorage.setItem('mittho_hint_seen', '1');
         }
       }, 5000);

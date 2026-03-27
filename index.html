@@ -318,6 +318,98 @@ body {
   gap: 28px;
 }
 
+/* Card */
+.card {
+  background: #f8f8f6;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Tag (popular/new) */
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #e6e6e6;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.menu{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+ 
+}
+.card{
+  width: 300px;
+}
+/* Content */
+.content {
+  padding: 18px;
+}
+
+/* Category */
+.category {
+  font-size: 13px;
+  color: #8a8a8a;
+  margin-bottom: 6px;
+}
+
+/* Title */
+.content h2 {
+  font-size: 20px;
+  color: #3c5a2a;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* Bottom section */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Price */
+.price {
+  font-weight: bold;
+  color: #2e3d22;
+}
+
+/* Add button */
+.add-btn {
+  background: #9c6b3c;
+  color: white;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;}
+  
 .menu-card {
   background: #ffffff;
   border-radius: 18px;
@@ -356,7 +448,7 @@ body {
 .card-img {
  
 width: 100%;
-aspect-ratio: 3 / 4;   /* keeps consistent size */
+aspect-ratio: 4/ 3;   /* keeps consistent size */
 object-fit: cover;     /* clean fill */
 object-position: center;
 display: block;
@@ -475,7 +567,72 @@ display: block;
                 </div>
             
                 <div class="menu-grid" id="menuGrid"></div>
-            
+      
+
+  <section class="menu">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <span class="tag">popular</span>
+      
+      <img src="images/expresso.jpg" alt="Signature Espresso">
+
+      <div class="content">
+        <p class="category">coffee</p>
+        <h2>Signature Espresso</h2>
+        <p class="desc">
+          Our single-origin dark roast, pulled slow for a velvety crema and bold chocolate finish.
+        </p>
+
+        <div class="bottom">
+          <span class="price">Rs.350NPR</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <span class="tag">new</span>
+
+      <img src="images/oat milk coffee.jpg" alt="Oat Milk Latte">
+
+      <div class="content">
+        <p class="category">coffee</p>
+        <h2>Oat Milk Latte</h2>
+        <p class="desc">
+          Silky steamed oat milk swirled with our house espresso blend. Smooth, nutty, perfect.
+        </p>
+
+        <div class="bottom">
+          <span class="price">Rs.520NPR</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <span class="tag">new</span>
+
+      <img src="images/matcha latte.jpg" alt="Honey Cardamom Flat White">
+
+      <div class="content">
+        <p class="category">coffee</p>
+        <h2>Honey Cardamom Flat White</h2>
+        <p class="desc">
+          Espresso with local wildflower honey and a whisper of cardamom. Unexpectedly addictive.
+        </p>
+
+        <div class="bottom">
+          <span class="price">Rs.580NPR</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
               </div>
         </section>
         <section id="location" class="location-section">

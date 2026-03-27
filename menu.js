@@ -156,19 +156,25 @@
           <p class="card-desc">${item.desc}</p>
           <div class="card-footer">
             <p class="card-price">Rs.${item.price}<span>NPR</span></p>
-            <button class="card-add">+</button>
+            <button class="card-add" data-name="${item.name}" data-price="${item.price}" data-img="${item.img || ''}">+</button>
           </div>
         </div>`;
 
       card.querySelector('.card-add').addEventListener('click', function () {
+        // Add to cart
+        if (typeof window.Cart === 'object') {
+          window.Cart.add(this.dataset.name, this.dataset.price, this.dataset.img);
+        }
+        // Visual feedback
         this.textContent = '✓';
         this.style.background = '#55883B';
         this.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-          this.textContent = '+';
-          this.style.background = '';
-          this.style.transform = '';
-        }, 1200);
+        var btn = this;
+        setTimeout(function () {
+          btn.textContent = '+';
+          btn.style.background = '';
+          btn.style.transform = '';
+        }, 800);
       });
 
       grid.appendChild(card);

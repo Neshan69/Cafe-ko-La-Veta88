@@ -28,6 +28,7 @@
     <script src="hamburger.js" defer></script>
     <script src="main.js" defer></script>
     <script src="menu.js" defer></script>
+    <script src="cart.js" defer></script>
     <script src="profile.js" defer></script>
     <script src="contact.js" defer></script>
     <script src="dropdown.js" defer></script>
@@ -84,6 +85,36 @@
                 <!-- End of corrected dropdown -->
             </ul>
         </nav>
+        <!-- CHANGED BY KILO AI - Cart icon in header -->
+        <div class="cart-wrapper" id="cart-wrapper">
+            <button class="cart-toggle" id="cart-toggle" aria-label="Open cart" type="button">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </button>
+            <!-- Cart Dropdown Panel -->
+            <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-header">
+                    <h4><i class="fa-solid fa-bag-shopping"></i> Your Cart</h4>
+                    <button class="cart-close" id="cart-close" aria-label="Close cart" type="button">&times;</button>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="cart-empty" id="cart-empty">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <p>Your cart is empty</p>
+                        <span>Add items from our menu</span>
+                    </div>
+                </div>
+                <div class="cart-footer" id="cart-footer" style="display:none;">
+                    <div class="cart-total">
+                        <span>Total</span>
+                        <span class="cart-total-price" id="cart-total-price">Rs.0</span>
+                    </div>
+                    <button class="cart-checkout" id="cart-checkout" type="button">
+                        <i class="fa-solid fa-credit-card"></i> Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
         <!-- CHANGED BY KILO AI - Profile section in header -->
         <div class="profile">
             <a href="#profile-section"><i class="fa-solid fa-user"></i> Profile</a>

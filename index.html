@@ -89,30 +89,57 @@
             <a href="#profile-section"><i class="fa-solid fa-user"></i> Profile</a>
         </div>
     </header>
-    <!-- CHANGED BY KILO AI - Profile section -->
+    <!-- CHANGED BY KILO AI - Profile section with Login/Register tabs -->
      <section class="profile" id="profile-section">
         <div class="profile-container">
-            <h2>Create Your Account</h2>
-            <form class="profile-form" id="profile-form" autocomplete="on">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required placeholder="Eg: Jamie Roberts">
-      
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="Eg: your@email.com" autocomplete="email">
-      
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required placeholder="Eg: +1 555 234 6789" pattern="[\d\+\s\-]+" autocomplete="tel">
-      
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" required minlength="6" placeholder="Choose a strong password" autocomplete="new-password">
-      
-              <button type="submit">Create Account</button>
+            <!-- Tab Switcher -->
+            <div class="auth-tabs">
+              <button class="auth-tab active" data-tab="login" type="button">Login</button>
+              <button class="auth-tab" data-tab="register" type="button">Register</button>
+              <div class="auth-tab-indicator"></div>
+            </div>
+
+            <!-- Login Form -->
+            <form class="profile-form auth-form active" id="login-form" autocomplete="on" data-form="login">
+              <h2>Welcome Back</h2>
+              <label for="login-email">Email Address</label>
+              <input type="email" id="login-email" name="email" required placeholder="Eg: your@email.com" autocomplete="email">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+              <div class="auth-options">
+                <label class="remember-me"><input type="checkbox" name="remember"> Remember me</label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn">Login</button>
+              <div class="form-hint">
+                Don't have an account?
+                <a href="#" class="switch-to-register">Register</a>
+              </div>
+              <div class="success-message" id="login-success">Login successful! Redirecting...</div>
+              <div class="error-message" id="login-error">Invalid email or password.</div>
+            </form>
+
+            <!-- Register Form -->
+            <form class="profile-form auth-form" id="register-form" autocomplete="on" data-form="register">
+              <h2>Create Account</h2>
+              <label for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" name="name" required placeholder="Eg: Jamie Roberts">
+              <label for="reg-email">Email Address</label>
+              <input type="email" id="reg-email" name="email" required placeholder="Eg: your@email.com" autocomplete="email">
+              <label for="reg-phone">Phone Number</label>
+              <input type="tel" id="reg-phone" name="phone" required placeholder="Eg: +1 555 234 6789" pattern="[\d\+\s\-]+" autocomplete="tel">
+              <label for="reg-password">Password</label>
+              <input type="password" id="reg-password" name="password" required minlength="6" placeholder="Choose a strong password" autocomplete="new-password">
+              <div class="auth-options">
+                <label class="remember-me"><input type="checkbox" name="terms" required> I agree to the terms and conditions</label>
+              </div>
+              <button type="submit" class="btn">Register</button>
               <div class="form-hint">
                 Already have an account?
-                <a href="login.html" style="color: var(--primary); text-decoration: underline;">Log In</a>
+                <a href="#" class="switch-to-login">Log In</a>
               </div>
-              <div class="success-message" id="success-message">Your details have been submitted!</div>
-              <div class="error-message" id="error-message">Sorry, there was a problem sending your details.</div>
+              <div class="success-message" id="register-success">Your details have been submitted!</div>
+              <div class="error-message" id="register-error">Sorry, there was a problem sending your details.</div>
             </form>
           </div>
       </section>

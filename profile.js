@@ -1,105 +1,187 @@
 /**
  * ============================================================
- * profile.js - Profile Section Functionality
+ * profile.js - Auth & Profile Section Functionality
  * ============================================================
  * Changed by kilo ai
- * 
- * This file handles:
- * - Profile section toggle logic
- * - Profile form submission
- * - Preloader functionality
+ *
+ * Handles:
+ * - Login / Register fast tab switching
+ * - Profile section overlay toggle (index.html)
+ * - Form submissions
+ * - Preloader
  * ============================================================
  */
 
-// Profile section toggle logic with enhanced styles and menu.css color theme & modern font upgrades
 document.addEventListener("DOMContentLoaded", function () {
-    
-    // ============================================================
-    // PROFILE FORM SUBMISSION (from profile.html)
-    // ============================================================
-    
-    const profileForm = document.getElementById('profile-form');
-    if (profileForm) {
-        // Replace with your real email address
-        const RECEIVER_EMAIL = "your@email.com"; // TODO: change this to your email
 
-        profileForm.addEventListener('submit', async function(e) {
+    // ============================================================
+    // LOGIN / REGISTER TAB SWITCHING (FAST)
+    // ============================================================
+
+    const authTabs = document.querySelectorAll(".auth-tab");
+    const authForms = document.querySelectorAll(".auth-form");
+    const tabIndicator = document.querySelector(".auth-tab-indicator");
+
+    function switchTab(targetTab) {
+        authTabs.forEach(function (t) { t.classList.remove("active"); });
+        authForms.forEach(function (f) { f.classList.remove("active"); });
+
+        var activeTab = document.querySelector('.auth-tab[data-tab="' + targetTab + '"]');
+        var activeForm = document.querySelector('.auth-form[data-form="' + targetTab + '"]');
+
+        if (activeTab) activeTab.classList.add("active");
+        if (activeForm) activeForm.classList.add("active");
+
+        // Move indicator
+        if (tabIndicator && activeTab) {
+            tabIndicator.style.left = activeTab.offsetLeft + "px";
+            tabIndicator.style.width = activeTab.offsetWidth + "px";
+        }
+
+        // Hide any visible messages
+        document.querySelectorAll(".success-message, .error-message").forEach(function (m) {
+            m.style.display = "none";
+        });
+    }
+
+    // Tab button clicks
+    authTabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+            switchTab(this.dataset.tab);
+        });
+    });
+
+    // Inline link switches
+    document.querySelectorAll(".switch-to-register").forEach(function (link) {
+        link.addEventListener("click", function (e) {
             e.preventDefault();
+            switchTab("register");
+        });
+    });
 
-            // Grab form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
+    document.querySelectorAll(".switch-to-login").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            switchTab("login");
+        });
+    });
 
-            // Prepare message
-            const subject = encodeURIComponent("New User Registration Notification");
-            const body = encodeURIComponent(
-                `A user has registered on your site:\n\n` +
-                `Name: ${name}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phone}\n\n` +
-                `-- End of details --`
-            );
+    // Position indicator on load
+    if (tabIndicator) {
+        var initTab = document.querySelector(".auth-tab.active");
+        if (initTab) {
+            tabIndicator.style.left = initTab.offsetLeft + "px";
+            tabIndicator.style.width = initTab.offsetWidth + "px";
+        }
+    }
 
-            // Show alert for demo
+    // Re-position on resize
+    window.addEventListener("resize", function () {
+        if (tabIndicator) {
+            var current = document.querySelector(".auth-tab.active");
+            if (current) {
+                tabIndicator.style.left = current.offsetLeft + "px";
+                tabIndicator.style.width = current.offsetWidth + "px";
+            }
+        }
+    });
+
+    // ============================================================
+    // LOGIN FORM SUBMISSION
+    // ============================================================
+
+    var loginForm = document.getElementById("login-form");
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var email = document.getElementById("login-email").value.trim();
+            var password = document.getElementById("login-password").value.trim();
+
+            if (!email || !password) return;
+
+            var successEl = document.getElementById("login-success");
+            var errorEl = document.getElementById("login-error");
+
+            // Demo: show success
+            if (successEl) successEl.style.display = "block";
+            if (errorEl) errorEl.style.display = "none";
+        });
+    }
+
+    // ============================================================
+    // REGISTER FORM SUBMISSION
+    // ============================================================
+
+    var registerForm = document.getElementById("register-form");
+    if (registerForm) {
+        registerForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var name = document.getElementById("reg-name").value.trim();
+            var email = document.getElementById("reg-email").value.trim();
+            var phone = document.getElementById("reg-phone").value.trim();
+
+            if (!name || !email) return;
+
+            var successEl = document.getElementById("register-success");
+            var errorEl = document.getElementById("register-error");
+
             alert(
-                "This demo can't automatically email your info to the admin.\n\nTo enable this, connect a service like EmailJS, SMTP server, or build a backend endpoint for sending email on submit.\n\nHere's the info you would receive:\n\n" +
-                `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n[Password hidden for security]`
+                "Demo mode — registration data:\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone + "\n" +
+                "[Password hidden]"
             );
-            document.getElementById('success-message').style.display = 'block';
-            document.getElementById('error-message').style.display = 'none';
+
+            if (successEl) successEl.style.display = "block";
+            if (errorEl) errorEl.style.display = "none";
         });
     }
-    
-    // Hide preloader when page is fully loaded
-    const preloader = document.getElementById('preloader');
+
+    // ============================================================
+    // PRELOADER
+    // ============================================================
+
+    var preloader = document.getElementById("preloader");
     if (preloader) {
-        window.addEventListener('load', function() {
-            preloader.classList.add('hidden');
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 400); // Match the transition duration
+        window.addEventListener("load", function () {
+            preloader.classList.add("hidden");
+            setTimeout(function () {
+                preloader.style.display = "none";
+            }, 400);
         });
     }
-    
+
     // ============================================================
-    // PROFILE SECTION TOGGLE (for index.html embedded profile)
+    // PROFILE SECTION OVERLAY TOGGLE (index.html)
     // ============================================================
-    
-    // Get the Profile nav button & Profile Section
-    const profileLink = document.querySelector("header .profile a[href='#profile-section']");
-    const profileSection = document.getElementById("profile-section");
 
-    // Early return if html not present
-    if (!profileSection || !profileLink)
-        return;
+    var profileLink = document.querySelector("header .profile a[href='#profile-section']");
+    var profileSection = document.getElementById("profile-section");
 
-    // === THEME & ENHANCED STYLE APPLY ===
+    if (!profileSection || !profileLink) return;
 
-    // Hide on load
-    profileSection.style.display = "none";
-    profileSection.style.position = "fixed";
-    profileSection.style.top = "0";
-    profileSection.style.left = "0";
-    profileSection.style.width = "100vw";
-    profileSection.style.height = "100vh";
-    profileSection.style.background = "linear-gradient(135deg, #E6F0DC 70%, #C1E899 100%)"; // var(--color-mint) to var(--color-lime) from menu.css
-    profileSection.style.zIndex = "99999";
-    profileSection.style.overflowY = "auto";
-    profileSection.style.justifyContent = "center";
-    profileSection.style.alignItems = "center";
-    profileSection.style.paddingTop = "7vh";
-    profileSection.style.backdropFilter = "blur(3px)";
-    profileSection.style.transition = "opacity .23s, filter .23s";
+    // Apply overlay styles
+    var s = profileSection.style;
+    s.display = "none";
+    s.position = "fixed";
+    s.top = "0";
+    s.left = "0";
+    s.width = "100vw";
+    s.height = "100vh";
+    s.background = "linear-gradient(135deg, #E6F0DC 70%, #C1E899 100%)";
+    s.zIndex = "99999";
+    s.overflowY = "auto";
+    s.justifyContent = "center";
+    s.alignItems = "center";
+    s.paddingTop = "7vh";
+    s.backdropFilter = "blur(3px)";
+    s.transition = "opacity .18s ease, filter .18s ease";
+    s.opacity = "0";
+    s.boxShadow = "0 0 0 999vw rgba(85,136,59,.10) inset";
 
-    // Animate profile panel fade-in
-    profileSection.style.opacity = "0";
-
-    // Add a subtle inner border for a card/glass look
-    profileSection.style.boxShadow = "0 0 0 999vw rgba(85,136,59,.10) inset";
-
-    // Target the real profile form card and give a more modern/fun look 
-    const container = profileSection.querySelector(".profile-container");
+    // Style container
+    var container = profileSection.querySelector(".profile-container");
     if (container) {
         container.style.background = "linear-gradient(122deg,#fff 80%,#E6F0DC 100%)";
         container.style.borderRadius = "22px";
@@ -111,53 +193,17 @@ document.addEventListener("DOMContentLoaded", function () {
         container.style.overflow = "visible";
         container.style.transition = "box-shadow .25s";
     }
-    // Style modern heading
-    const heading = profileSection.querySelector(".profile-container h2");
-    if (heading) {
-        heading.style.fontFamily = "'Playfair Display', cursive, serif";
-        heading.style.background = "linear-gradient(90deg, #9A6735 8%, #55883B 72%)";
-        heading.style.color = "white";
-        heading.style.borderRadius = "12px";
-        heading.style.padding = "0.16em 0.48em";
-        heading.style.marginBottom = "1.8rem";
-        heading.style.textShadow = "0 3px 10px #b86b2820";
-        heading.style.letterSpacing = "0.01em";
-        heading.style.fontSize = "1.6rem";
-        heading.style.fontWeight = "700";
-        heading.style.boxShadow = "0 3px 12px 0 rgba(85,136,59,0.14)";
-    }
-    // Animate form elements (hover highlights with theme)
-    const form = profileSection.querySelector(".profile-form");
-    if (form) {
-        form.style.fontFamily = "'Jost', 'Montserrat', sans-serif";
-        const inputs = form.querySelectorAll("input, button");
-        inputs.forEach(el => {
-            el.style.fontFamily = "'Jost', 'Montserrat', sans-serif";
-        });
-        const btn = form.querySelector("button[type='submit']");
-        if (btn) {
-            btn.style.background = "linear-gradient(92deg,var(--color-accent),var(--color-forest) 85%)";
-            btn.style.fontWeight = "700";
-            btn.style.letterSpacing = ".04em";
-            btn.style.transition = "background .21s, box-shadow .18s";
-            btn.style.boxShadow = "0 4px 16px 0 #b86b2820";
-        }
-        // Labels: earth tone 
-        const labels = form.querySelectorAll("label");
-        labels.forEach(lbl => {
-            lbl.style.color = "#9A6735";
-            lbl.style.letterSpacing = ".03em";
-        });
-        // Input fields (subtle green border)
-        const inputFields = form.querySelectorAll("input");
-        inputFields.forEach(inp => {
-            inp.style.border = "1.7px solid #55883B";
-            inp.style.background = "linear-gradient(99deg,#fff 84%,#C1E899 100%)";
-        });
+
+    // Style tabs
+    var tabsContainer = profileSection.querySelector(".auth-tabs");
+    if (tabsContainer) {
+        tabsContainer.style.display = "flex";
+        tabsContainer.style.position = "relative";
+        tabsContainer.style.marginBottom = "1.5rem";
     }
 
-    // === CREATE EXIT ("X") BUTTON ===
-    let closeBtn = profileSection.querySelector(".profile-exit-btn");
+    // Create close button
+    var closeBtn = profileSection.querySelector(".profile-exit-btn");
     if (!closeBtn) {
         closeBtn = document.createElement("button");
         closeBtn.innerHTML = '<span aria-label="Close" style="font-size:2.2em;">&times;</span>';
@@ -187,49 +233,45 @@ document.addEventListener("DOMContentLoaded", function () {
         profileSection.appendChild(closeBtn);
     }
 
-    // === TOGGLE LOGIC ===
-
-    // Fade in display
+    // Open overlay
     profileLink.addEventListener("click", function (e) {
         e.preventDefault();
         profileSection.style.display = "flex";
-        setTimeout(() => {
+        requestAnimationFrame(function () {
             profileSection.style.opacity = "1";
             profileSection.style.filter = "blur(0)";
-        }, 15);
+        });
         document.body.style.overflow = "hidden";
     });
-    // Hide on close button
+
+    // Close via button
     closeBtn.addEventListener("click", function () {
         profileSection.style.opacity = "0";
-        setTimeout(() => {
+        setTimeout(function () {
             profileSection.style.display = "none";
             document.body.style.overflow = "";
-        }, 200);
+        }, 180);
     });
-    // Hide if click off card
+
+    // Close via backdrop click
     profileSection.addEventListener("click", function (e) {
-        const formContainer = profileSection.querySelector(".profile-container");
-        if (
-            e.target === profileSection &&
-            formContainer &&
-            !formContainer.contains(e.target)
-        ) {
+        if (e.target === profileSection) {
             profileSection.style.opacity = "0";
-            setTimeout(() => {
+            setTimeout(function () {
                 profileSection.style.display = "none";
                 document.body.style.overflow = "";
-            }, 200);
+            }, 180);
         }
     });
-    // Hide with Esc key
+
+    // Close via Escape key
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && profileSection.style.display === "flex") {
             profileSection.style.opacity = "0";
-            setTimeout(() => {
+            setTimeout(function () {
                 profileSection.style.display = "none";
                 document.body.style.overflow = "";
-            }, 200);
+            }, 180);
         }
     });
 });

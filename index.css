@@ -2346,15 +2346,120 @@
        text-align: center;
        display: none;
    }
-   .profile-form .error-message {
-       color: #B86B28;
-       font-weight: bold;
-       margin-top: 1em;
-       text-align: center;
-       display: none;
-   }
-   
-   /* --- Menu Section Styles (from index.html) --- */
+    .profile-form .error-message {
+        color: #B86B28;
+        font-weight: bold;
+        margin-top: 1em;
+        text-align: center;
+        display: none;
+    }
+
+    /* ============================================================
+       Created by Kilo - AUTH TABS (LOGIN / REGISTER SWITCH)
+       ============================================================ */
+
+    .auth-tabs {
+        display: flex;
+        position: relative;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--color-border-subtle, #E6F0DC);
+    }
+
+    .auth-tab {
+        flex: 1;
+        padding: 0.7em 0;
+        background: none;
+        border: none;
+        font-family: var(--font-body, 'DM Sans', sans-serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-text-muted, #7a8c6e);
+        cursor: pointer;
+        transition: color 0.2s ease;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .auth-tab:hover {
+        color: var(--color-text-primary, #1e2e14);
+    }
+
+    .auth-tab.active {
+        color: var(--color-secondary, #55883B);
+    }
+
+    .auth-tab-indicator {
+        position: absolute;
+        bottom: -2px;
+        height: 2px;
+        background: var(--color-secondary, #55883B);
+        transition: left 0.25s ease, width 0.25s ease;
+        border-radius: 2px;
+    }
+
+    /* Auth form visibility - fast switch */
+    .auth-form {
+        display: none;
+        opacity: 0;
+        transform: translateX(8px);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .auth-form.active {
+        display: block;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .auth-form h2 {
+        font-family: var(--font-display, 'DM Serif Display', serif);
+        color: var(--color-forest-500, #55883B);
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    .auth-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.5em 0;
+        font-size: 0.85em;
+    }
+
+    .auth-options .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--color-text-secondary, #55883B);
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    .auth-options .forgot-link {
+        color: var(--color-accent, #9A6735);
+        text-decoration: none;
+        font-size: 0.9em;
+    }
+
+    .auth-options .forgot-link:hover {
+        text-decoration: underline;
+    }
+
+    .switch-to-register,
+    .switch-to-login {
+        color: var(--color-secondary, #55883B);
+        text-decoration: underline;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .switch-to-register:hover,
+    .switch-to-login:hover {
+        color: var(--color-accent, #9A6735);
+    }
+
+    /* --- Menu Section Styles (from index.html) --- */
    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
    
    :root {

@@ -186,33 +186,38 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="ai-title">Pistachio Café Assistant</div>
-    <div class="ai-tags">Your site helper 🤖 | Ask about our pages or features!</div>
-  </header>
+    <section id="mithhoai" class="mittho-ai">
+
+        <header>
+          <div class="ai-title">Pistachio Café Assistant</div>
+          <div class="ai-tags">Your site helper 🤖 | Ask about our pages or features! <span style="color:#b18453;">Now, ask for a joke or fun fact in English!</span></div>
+        </header>
+        <div class="ai-chatbox">
+          <div class="ai-messages" id="aiMessages">
+            <!-- Chat messages here -->
+          </div>
+          <form class="ai-input-form" id="aiForm" autocomplete="off">
+            <input type="text" class="ai-input" id="aiInput" placeholder="Ask anything here... (Try: 'Tell me a joke' or 'Fun fact')" required maxlength="130" autocomplete="off">
+            <button type="submit" class="ai-send-btn">Send</button>
+          </form>
+          <div class="ai-limited">
+            This AI can answer your questions about site features, navigation, using <b>Home</b>, <b>Blog</b>, <b>Profile</b> & this chat.<br>
+            <b>Plus: Ask for an English joke or fun fact – I'll try to make you smile!</b><br>
+            Try:<br>
+            <em>"What can I do here?"</em>, <em>"Tell me a joke"</em>, <em>"Fun fact please"</em>, <em>"How to post on the blog?"</em>
+          </div>
+        </div>
+        <div class="ai-links">
+          <a href="index.html">🏠 Home</a>
+          <a href="article.html">📝 Blog</a>
+          <a href="profile.html">👤 Profile</a>
+          <a href="mitthoai.html" style="font-weight:900;color:#b18453;">🤖 AI</a>
+        </div>
+    </section>
   <main>
-    <div class="ai-chatbox">
-      <div class="ai-messages" id="aiMessages">
-        <!-- Chat messages here -->
-      </div>
-      <form class="ai-input-form" id="aiForm" autocomplete="off">
-        <input type="text" class="ai-input" id="aiInput" placeholder="Ask me about Pistachio Café..." required maxlength="130" autocomplete="off">
-        <button type="submit" class="ai-send-btn">Send</button>
-      </form>
-      <div class="ai-limited">
-        This AI can only answer questions about: site features, navigation, how to use <b>Home</b>, <b>Blog</b>, <b>Profile</b> & this chat. Limited to known topics. Try:<br>
-        <em>"What can I do here?"</em>, <em>"How to post on the blog?"</em>, <em>"How to register?"</em>, <em>"Who made this?"</em>
-      </div>
-    </div>
-    <div class="ai-links">
-      <a href="index.html">🏠 Home</a>
-      <a href="article.html">📝 Blog</a>
-      <a href="profile.html">👤 Profile</a>
-      <a href="mitthoai.html" style="font-weight:900;color:#b18453;">🤖 AI</a>
-    </div>
   </main>
   <script>
-    // FAQ MAP: Add/edit here for new Qs. 
+    // FAQ MAP, now also handle joke & fun fact
     const AI_FAQ = [
       {
         q: [ "what can i do", "site features", "options", "help", "what is this", "about this", "how does this work" ],
@@ -244,7 +249,7 @@
       },
       {
         q: [ "ai", "chatbot", "assistant", "who are you", "what can you answer", "limitations", "questions i can ask" ],
-        a: "I'm a simple AI assistant for Pistachio Café 🌱. I can only answer questions about using our site, blog, and community—not general world questions, orders, or bookings. Try asking about navigation, posts, or profiles!"
+        a: "I'm a simple AI assistant for Pistachio Café 🌱. I can answer questions about using our site, blog, and community—and (just for you) I can also tell a joke or fun fact! Try asking: <em>Tell me a joke</em> or <em>Give me a fun fact</em>."
       },
       {
         q: [ "contact", "who made this", "contact us", "owner", "who created" ],
@@ -260,8 +265,29 @@
       }
     ];
 
+    // Jokes and Fun Facts (English)
+    const AI_JOKES = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "What did the coffee say to the sugar? You make life sweet!",
+      "Why was the math book sad? Because it had too many problems.",
+      "Why do we never tell secrets on a farm? Because the potatoes have eyes and the corn has ears!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!"
+    ];
+
+    const AI_FUN_FACTS = [
+      "Did you know? Honey never spoils. Archaeologists have found 3000-year-old Egyptian honey that's still edible!",
+      "Here’s a fun fact: Bananas are berries, but strawberries are not!",
+      "Did you know? A group of flamingos is called a 'flamboyance.'",
+      "Fun fact: An octopus has three hearts.",
+      "The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion of the metal."
+    ];
+
+    function getRandomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
     // Default fallback message for unknown questions
-    const AI_FALLBACK = "Sorry, I can only help with Pistachio Café site features, navigation, blog, and basic profile tips.<br>Try asking:<br><em>How do I register?</em> | <em>How to post in the blog?</em> | <em>Where's the contact info?</em>";
+    const AI_FALLBACK = "Sorry, I can only help with Pistachio Café site features, navigation, blog, and basic profile tips.<br>But you can also ask me for a <b>joke</b> or <b>fun fact</b>!<br>Try:<br><em>How do I register?</em> | <em>Tell me a joke</em> | <em>Fun fact please</em>";
 
     // DOM elements
     const aiMessages = document.getElementById('aiMessages');
@@ -270,7 +296,7 @@
 
     // Greet on load
     function aiGreet() {
-      aiAddMessage('Hi! 👋 I\'m here to help with Pistachio Café.<br>Ask me about: using the site, where to find things, posting on the blog, and more!', 'bot');
+      aiAddMessage('Hi! 👋 I\'m here to help with Pistachio Café.<br><b>Ask me anything about our site – or say <em>"Tell me a joke"</em> or <em>"Fun fact"</em> for a smile!</b>', 'bot');
     }
 
     // Add msg (bot/user)
@@ -286,15 +312,33 @@
       aiMessages.scrollTop = aiMessages.scrollHeight;
     }
 
-    // Main handler: get best-fit, else fallback
+    // Main handler: get best-fit, else fallback, or joke/fun fact
     function aiGetResponse(raw) {
-      // simple normalize
       const input = (raw||'').toLowerCase().replace(/[^\w\s]/g,'').trim();
+
+      // Joke/fun fact check (English, simple detection)
+      if (
+        /\bjoke\b/.test(input) || 
+        /\btell me.*joke\b/.test(input) || 
+        /\bmake.*laugh\b/.test(input)
+      ) {
+        return "Here's a joke for you!<br><em>" + getRandomItem(AI_JOKES) + "</em> 😂";
+      }
+      if (
+        /\bfun fact\b/.test(input) || 
+        /\ban? interesting fact\b/.test(input) ||
+        /\btell me.*fact\b/.test(input)
+      ) {
+        return "Fun fact coming up!<br><em>" + getRandomItem(AI_FUN_FACTS) + "</em> 🌟";
+      }
+
+      // Look up FAQ (site questions)
       for (const {q,a} of AI_FAQ) {
         for (const kw of q) {
           if (input.includes(kw)) return a;
         }
       }
+
       return AI_FALLBACK;
     }
 

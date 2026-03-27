@@ -1,0 +1,147 @@
+<!--
+  ============================================================
+  MITTHO-AI — HTML Integration Snippet
+  La-Veta88 · mittho.ai Floating Chat Widget
+  ============================================================
+
+  HOW TO INTEGRATE INTO index.html
+  ─────────────────────────────────────────────────────────
+  STEP 1 — In <head>, add the CSS (after your index.css):
+
+    <link rel="stylesheet" href="mittho-ai.css">
+
+  STEP 2 — In <body>, replace the empty .mittho-ai section
+  with this snippet (the widget injects itself into <body>
+  automatically via JS — you only need the section as an
+  anchor/scroll target):
+
+    <!-- Mittho AI anchor (widget is injected by JS) -->
+    <section class="mittho-ai" id="mittho-ai-section"></section>
+
+  STEP 3 — Before </body>, add the JS (after your other scripts):
+
+    <script src="mittho-ai.js"></script>
+
+  ─────────────────────────────────────────────────────────
+  FULL EXAMPLE — what your index.html should look like:
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La-Veta88.com</title>
+
+  <!-- ... your existing links ... -->
+
+  <!-- ① ADD THIS — Mittho AI styles (after index.css) -->
+  <link rel="stylesheet" href="mittho-ai.css">
+
+</head>
+<body>
+
+  <!-- ... all your existing HTML (header, main, sections, footer) ... -->
+
+  <!--
+    ② REPLACE the empty <section class="mittho-ai"> in your contact section
+    Your current code:
+      <section class="mittho-ai"></section>
+
+    Replace with:
+  -->
+  <section class="mittho-ai" id="mittho-ai-section" aria-label="Mittho AI Chat Widget"></section>
+
+  <!-- ... footer ... -->
+
+  <!-- ... your existing scripts ... -->
+
+  <!-- ③ ADD THIS — Mittho AI script (last, before </body>) -->
+  <script src="mittho-ai.js"></script>
+
+</body>
+</html>
+
+
+<!--
+  ============================================================
+  EXACT DIFF — what to change in your index.html
+  ============================================================
+
+  IN <head> — ADD after <link rel="stylesheet" href="index.css">:
+  ──────────────────────────────────────────────────────────────
+  <link rel="stylesheet" href="mittho-ai.css">
+
+
+  IN <body> — FIND this line inside your contact section:
+  ──────────────────────────────────────────────────────────────
+  <section class="mittho-ai">
+  </section>
+
+  REPLACE WITH:
+  ──────────────────────────────────────────────────────────────
+  <section class="mittho-ai" id="mittho-ai-section"></section>
+
+
+  BEFORE </body> — ADD after all other <script> tags:
+  ──────────────────────────────────────────────────────────────
+  <script src="mittho-ai.js"></script>
+
+
+  ============================================================
+  FILE STRUCTURE
+  ============================================================
+  your-project/
+  ├── index.html         ← add CSS link + JS script tag
+  ├── index.css          ← unchanged
+  ├── mittho-ai.css      ← NEW — widget styles
+  ├── mittho-ai.js       ← NEW — widget logic
+  └── mitthoai.html      ← your existing mittho.ai page
+
+  ============================================================
+  FEATURES INCLUDED
+  ============================================================
+  ✅ Floating FAB button (bottom-right, fixed)
+  ✅ Animated open/close with spring physics
+  ✅ Pulse ring when chat is closed
+  ✅ Notification dot after 3s
+  ✅ Toast hint on first visit
+  ✅ Welcome banner with quick-suggestion chips
+  ✅ AI typing indicator (animated dots)
+  ✅ Chat history saved to localStorage
+  ✅ Clear history button
+  ✅ Send on Enter (Shift+Enter = new line)
+  ✅ Auto-resize textarea
+  ✅ Close on Escape key or click outside
+  ✅ Keyword-based smart replies (menu, hours, location, etc.)
+  ✅ Fully accessible (ARIA labels, focus management)
+  ✅ Reduced-motion support
+  ✅ Mobile responsive
+  ✅ 100% matches your index.css design system tokens
+  ✅ Zero external dependencies
+  ✅ "Powered by mittho.ai" branding in footer
+
+  ============================================================
+  CUSTOMIZATION
+  ============================================================
+  In mittho-ai.js, edit the MITTHO_CONFIG object:
+
+    botName:    'Mittho AI'       ← Display name in header
+    botEmoji:   '☕'              ← Bot avatar emoji
+    greetDelay: 1200              ← ms before first auto-reply
+    maxHistory: 40                ← Max messages in localStorage
+
+  To add new smart replies, add entries to the CANNED object:
+
+    newTopic: [
+      "Your reply here with <strong>HTML</strong> supported!",
+      "Second possible reply for variety.",
+    ],
+
+  Then add a matcher in the matchResponse() function:
+
+    if (/keyword1|keyword2/.test(t)) return pickRandom(CANNED.newTopic);
+
+  ============================================================
+-->

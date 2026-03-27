@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pistachio Café — Blog & Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Main design system -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Professional fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=DM+Serif+Display:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-main: 'Manrope', 'Segoe UI', Arial, sans-serif;
+            --font-title: 'DM Serif Display', serif;
+            --c-mint: #cdeac0;
+            --c-cream: #f9faf6;
+            --c-accent: #88ad80;
+            --c-heading: #654f29;
+            --c-subtle: #8c9287;
+            --c-dark: #5a6b48;
+            --c-border: #e3e9db;
+            --c-shadow: 0 8px 28px 0 rgba(140,140,100,0.12);
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(128deg, #f7fad8 15%, #faf5e5 80%);
+            color: var(--c-dark);
+            font-family: var(--font-main);
+            margin: 0;
+            letter-spacing: 0.01em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header and nav */
+        .blog-header {
+            background: linear-gradient(91deg, #d5e9b8 27%, #ffeacc 97%);
+            border-bottom-left-radius: 38px;
+            border-bottom-right-radius: 38px;
+            box-shadow: 0 6px 34px 0 rgba(170, 123, 75, 0.09);
+            padding: 0 0 28px 0;
+            position: relative;
+        }
+
+        .nav-bar {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 34px 0 34px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            min-height: 50px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            font-size: 2.45rem;
+            background: linear-gradient(136deg, #e0fabc 67%, #ffe9d0 100%);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 11px rgba(96,139,62,0.08);
+        }
+        .nav-title {
+            font-family: var(--font-title);
+            font-size: 1.36rem;
+            font-weight: 900;
+            color: var(--c-heading);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        .home-btn {
+            padding: 10px 36px;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 1.12rem;
+            color: #fff;
+            background: linear-gradient(94deg, #a9d97a 10%, #a67c52 90%);
+            border: none;
+            border-radius: 99px;
+            box-shadow: 0 2px 16px 0 rgba(140,170,100,0.10);
+            cursor: pointer;
+            letter-spacing: .012em;
+            outline: none;
+            transition: background 0.13s, transform 0.13s, box-shadow 0.13s;
+        }
+        .home-btn:hover, .home-btn:focus {
+            background: linear-gradient(91deg, #855a2a 5%, #99bc67 95%);
+            color: #fff9ee;
+            transform: scale(1.06) translateY(-1.5px);
+            box-shadow: 0 6px 20px 0 rgba(140,170,100,0.19);
+        }
+
+        .blog-header-content {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .blog-header h1 {
+            margin: 0 0 16px 0;
+            font-family: var(--font-title);
+            font-size: 3.03rem;
+            font-weight: 900;
+            background: linear-gradient(77deg, #8bb26e 8%, #b18453 82%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+        }
+        .blog-header .highlight {
+            font-size: 1.53rem;
+            font-family: var(--font-main);
+            font-weight: 800;
+            background: none;
+            color: #b18453;
+            -webkit-text-fill-color: #b18453;
+            margin-left: 0.25rem;
+        }
+        .blog-header p {
+            font-size: 1.22rem;
+            font-weight: 500;
+            color: #746330;
+            opacity: .87;
+            max-width: 545px;
+            margin: 0 auto;
+            line-height: 1.68;
+            letter-spacing: .021em;
+        }
+
+        .blog-divider-vibrant {
+            height: 7px;
+            width: 48%;
+            min-width: 190px;
+            max-width: 330px;
+            margin: 34px auto 30px auto;
+            border-radius: 111px;
+            background: linear-gradient(92deg, #daf6ba 0%, #f8dec1 70%);
+            box-shadow: 0 2px 18px rgba(154, 103, 53,.11);
+            opacity: .98;
+        }
+
+        /* Blog layout */
+        .blog-container {
+            width: 99%;
+            max-width: 870px;
+            margin: 20px auto 0 auto;
+            background: var(--c-cream);
+            border-radius: 28px;
+            box-shadow: var(--c-shadow);
+            padding: 42px 36px 36px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            border: 1.2px solid var(--c-border);
+            transition: box-shadow .13s;
+        }
+        .blog-container:hover, .blog-container:focus-within {
+            box-shadow: 0 8px 64px 0 rgba(100,120,60,0.17);
+        }
+
+        .blog-post-form {
+            background: linear-gradient(92deg, #f5fbec 75%, #fffbe8 100%);
+            padding: 30px 22px 17px 22px;
+            border-radius: 18px;
+            margin-bottom: 48px;
+            box-shadow: 0 1.2px 8px 0 rgba(154, 103, 53, 0.07);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            border: 1.2px solid #eaeedc;
+            align-items: stretch;
+        }
+        .blog-post-form__title {
+            font-family: var(--font-title);
+            font-size: 1.36rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            margin-top: -9px;
+            color: var(--c-accent);
+            text-align: left;
+            letter-spacing: -0.2px;
+        }
+        .blog-post-form input,
+        .blog-post-form textarea {
+            width: 100%;
+            display: block;
+            padding: 13px 17px;
+            border: 1px solid var(--c-border);
+            border-radius: 9px;
+            font-size: 1.09rem;
+            background: linear-gradient(90deg, #fafae6 80%, #fffefd 100%);
+            color: #232f23;
+            font-family: var(--font-main);
+            resize: none;
+            box-shadow: 0 0.5px 1.2px rgba(85,136,59,0.03);
+            transition: border-color 0.16s, box-shadow 0.12s;
+        }
+        .blog-post-form input:focus,
+        .blog-post-form textarea:focus {
+            border-color: #98c767;
+            outline: none;
+            box-shadow: 0 3px 16px 0 rgba(108,160,60,.09);
+        }
+        .blog-post-form button[type="submit"] {
+            align-self: flex-end;
+            background: linear-gradient(90deg, #64b47e 20%, #a67c52 80%);
+            color: #fff;
+            border: none;
+            border-radius: 99px;
+            padding: 11px 36px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            font-family: var(--font-main);
+            box-shadow: 0 2px 8px rgba(154, 103, 53, 0.10);
+            cursor: pointer;
+            letter-spacing: .05em;
+            margin-top: 8px;
+            transition: background .14s, transform 0.10s, box-shadow 0.10s;
+        }
+        .blog-post-form button[type="submit"]:hover,
+        .blog-post-form button[type="submit"]:focus {
+            background: linear-gradient(90deg, #a67c52 15%, #66c282 80%);
+            color: #fffbe6;
+            transform: translateY(-2.5px) scale(1.044);
+            box-shadow: 0 8px 19px rgba(120, 150, 72, .11);
+        }
+
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 38px;
+            margin-top: 9px;
+        }
+        .blog-card {
+            background: linear-gradient(115deg, #fff 80%, #e7fae0 100%);
+            border-radius: 19px 40px 18px 22px;
+            padding: 36px 36px 20px 31px;
+            box-shadow: 0 8px 38px 0 rgba(154, 103, 53, 0.12);
+            border: 1.1px solid #e3f0de;
+            animation: fade-in-up .56s cubic-bezier(.21, .68, .46, 1) both;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            align-items: flex-start;
+        }
+        .blog-card h3 {
+            font-family: var(--font-title);
+            font-size: 1.43rem;
+            color: #57733b;
+            margin-bottom: 6px;
+            font-weight: 900;
+            margin-top: 0;
+            letter-spacing: -0.2px;
+        }
+        .blog-card .blog-meta {
+            color: #bcbb95;
+            font-size: .96em;
+            margin-bottom: 0.71em;
+            font-family: var(--font-main);
+        }
+        .blog-card p {
+            font-size: 1.11rem;
+            color: #564e34;
+            margin-bottom: 0.16em;
+            font-family: var(--font-main);
+            line-height:1.68;
+            letter-spacing: .005em;
+        }
+        .blog-card .blog-author {
+            color: #a67c52;
+            font-size: .99em;
+            font-style: italic;
+            margin-top: 18px;
+            font-family: var(--font-main);
+            align-self: flex-end;
+        }
+        @keyframes fade-in-up {
+          from { opacity:0; transform:translateY(24px);}
+          to   { opacity:1; transform:translateY(0);}
+        }
+
+        /* Final touch: subtle shine on hover */
+        .blog-card:hover, .blog-card:focus-within {
+            box-shadow: 0 12px 32px 0 rgba(110,120,80,.13), 0 0 11px 0 #e3fbd7c4 inset;
+            transition: box-shadow 0.12s;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .blog-container {padding: 20px 2vw;}
+            .nav-bar {padding: 18px 2vw 0;}
+            .blog-header-content {margin-top:2px;}
+        }
+        @media (max-width: 700px) {
+            .blog-header h1 { font-size: 2.07rem;}
+            .nav-bar {padding: 14px 6vw 0;}
+            .blog-container {padding: 9px 4vw;}
+            .blog-post-form {padding: 11px 0;}
+            .blog-card {padding:22px 9px;}
+            .blog-divider-vibrant {width: 90%;}
+        }
+        @media (max-width: 480px) {
+            .blog-header {padding-bottom:15px; border-radius:0;}
+            .blog-header h1 {font-size:1.32rem;}
+            .blog-card {padding: 11px 4px 7px;}
+            .blog-divider-vibrant {min-width:110px; width:100%;}
+            .nav-bar {padding:10px 2vw 0;}
+            .blog-container {padding: 4px 1vw;}
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <nav class="nav-bar" aria-label="Main site navigation">
+            <a class="nav-logo" href="index.html" title="Pistachio Café Home">
+                <span class="nav-logo-icon" aria-label="Café Home">🥜</span>
+                <span class="nav-title">Pistachio Café</span>
+            </a>
+            <button class="home-btn" onclick="window.location='index.html'">← Home</button>
+        </nav>
+        <div class="blog-header-content">
+            <h1>
+                Pistachio Café <span class="highlight">Blog</span>
+            </h1>
+            <p>
+                Share your favorite café stories, cozy recipes, and creative tips!<br>
+                <span style="font-style:normal;color:#b18453;font-family:var(--font-main);font-weight:700;">Community &amp; Coffee, One Post At A Time.</span>
+            </p>
+        </div>
+    </header>
+    <div class="blog-divider-vibrant"></div>
+    <main>
+        <section class="blog-container">
+            <form class="blog-post-form" id="blogPostForm" autocomplete="off">
+                <div class="blog-post-form__title">Add a Blog Post</div>
+                <input type="text" id="blogTitle" placeholder="What's your post about?" required maxlength="80" autocomplete="off">
+                <textarea id="blogContent" rows="4" placeholder="Share your café adventure, recipe or tip..." required minlength="10"></textarea>
+                <input type="text" id="blogAuthor" placeholder="Your name or nickname (optional)">
+                <button type="submit">Add Post</button>
+            </form>
+            <section class="blog-list" id="blogList">
+                <!-- Blog posts will appear here -->
+            </section>
+        </section>
+    </main>
+    <script>
+        // Blog post structure: { title, content, author, time }
+        const blogList = document.getElementById('blogList');
+        const blogPostForm = document.getElementById('blogPostForm');
+        const STORAGE_KEY = "pistachio_cafe_blog_posts";
+
+        // Returns posts array (newest first)
+        function getPosts() {
+            let posts = [];
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) posts = JSON.parse(stored);
+            } catch{}
+            return Array.isArray(posts) ? posts : [];
+        }
+
+        function savePosts(posts) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+            } catch{}
+        }
+
+        function renderPosts(posts) {
+            blogList.innerHTML = "";
+            if (posts.length === 0) {
+                blogList.innerHTML = `<p style="text-align:center;color:#c1bba1;font-size:1.11em;opacity:.82;">No blog posts yet. Your story can be the first!</p>`;
+                return;
+            }
+            posts.forEach((post) => {
+                const card = document.createElement('article');
+                card.className = "blog-card";
+                card.innerHTML = `
+                    <h3>${escapeHTML(post.title)}</h3>
+                    <div class="blog-meta">${timeAgo(post.time)}</div>
+                    <p>${escapeHTML(post.content).replace(/\n/g, "<br>")}</p>
+                    <div class="blog-author">— ${escapeHTML(post.author || 'Anonymous')}</div>
+                `;
+                blogList.appendChild(card);
+            });
+        }
+
+        function escapeHTML(str) {
+            if (!str) return "";
+            return str.replace(/[&<>"']/g, function(m) {
+                return ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+                })[m];
+            });
+        }
+
+        function timeAgo(iso) {
+            const now = new Date();
+            const time = new Date(iso);
+            const diff = (now - time) / 1000;
+            if (isNaN(diff)) return "";
+            if (diff < 60) return 'Just now';
+            if (diff < 3600) return Math.floor(diff/60) + ' min ago';
+            if (diff < 86400) return Math.floor(diff/3600) + ' hr ago';
+            if (diff < 172800) return 'Yesterday';
+            return time.toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+        }
+
+        // Form: add newest post at top, remove oldest
+        blogPostForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = blogPostForm.blogTitle.value.trim();
+            const content = blogPostForm.blogContent.value.trim();
+            const author = blogPostForm.blogAuthor.value.trim() || "Anonymous";
+            if (title && content.length > 7) {
+                let posts = getPosts();
+                // Limit storage: replace oldest
+                if (posts.length > 0) posts = posts.slice(0, posts.length - 1);
+                posts.unshift({
+                    title, content, author,
+                    time: new Date().toISOString()
+                });
+                savePosts(posts);
+                renderPosts(posts);
+                blogPostForm.reset();
+            }
+        });
+
+        // On initial load
+        let loadedPosts = getPosts();
+        loadedPosts.sort((a, b) => new Date(b.time) - new Date(a.time));
+        renderPosts(loadedPosts);
+
+    </script>
+</body>
+</html>

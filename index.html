@@ -21,6 +21,9 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css">
     
@@ -356,13 +359,6 @@
             </div>
             
         </section>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- SWIPER -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-
   <!-- BANNERS -->
 
   <div class="container pb-5" id="categoryCollapseGroup">
@@ -601,468 +597,12 @@
 
     </div>
 
-    <!-- Swiper CSS (loaded via CDN in head) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- SWIPER -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
-
-        <!-- CHANGED BY KILO AI - Contact section -->
-        <section id="contact" class="contact-section py-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-subtitle">Get In Touch</span>
-                    <h2 class="display-5 fw-bold mt-2">Contact <span class="text-warning">Us</span></h2>
-                    <p class="lead text-muted mx-auto" style="max-width: 600px;">We'd love to hear from you!</p>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-lg-8 mx-auto">
-                        <form id="contactForm" class="contact-form" novalidate>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="name" class="form-label">Your Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
-                                    <!-- Validation feedback (Bootstrap 5) -->
-                                    <div class="invalid-feedback">
-                                        Please enter your name.
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                    <div class="invalid-feedback">
-                                        Please enter a valid email address.
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="subject" class="form-label">Subject</label>
-                                    <select class="form-select" id="subject" name="subject">
-                                        <option value="General">General Inquiry</option>
-                                        <option value="Reservation">Table Reservation</option>
-                                        <option value="Feedback">Feedback</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                                    <div class="invalid-feedback">
-                                        Please enter your message.
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-warning btn-lg px-5">
-                                        <i class="bi bi-send me-2"></i>Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Contact Info Cards -->
-                <div class="row g-4 mt-5">
-                    <div class="col-md-4">
-                        <div class="contact-card text-center">
-                            <div class="contact-icon">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <h5>Location</h5>
-                            <p class="mb-0">New Road, Kathmandu</p>
-                            <p>Nepal</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact-card text-center">
-                            <div class="contact-icon">
-                                <i class="bi bi-telephone-fill"></i>
-                            </div>
-                            <h5>Phone</h5>
-                            <p class="mb-0">+977 01-1234567</p>
-                            <p>+977 9841234567</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact-card text-center">
-                            <div class="contact-icon">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <h5>Email</h5>
-                            <p class="mb-0">info@kanchhikhobhatti.com</p>
-                            <p>orders@kanchhikhobhatti.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- CHANGED BY KILO AI - Menu section -->
         <section id="menu" class="menu-section">
             <div class="menu-inner">
 
-<<<<<<< HEAD
-                <style>
-                    
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --light-green: #C1E899;
-  --brown:       #9A6735;
-  --pale-green:  #E6F0DC;
-  --dark-green:  #55883B;
-  --dark:        #1e2e14;
-  --warm-gray:   #7a8c6e;
-}
-
-body {
-  background: var(--light-green);
-  color: var(--dark);
-  font-family: 'Jost', sans-serif;
-  overflow-x: hidden;
-}
-
-.menu-section {
-  min-height: 100vh;
-  padding: 80px 24px 100px;
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-section::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 10% 15%, rgba(85,136,59,.18) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 88% 80%, rgba(154,103,53,.12) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.menu-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
-
-.menu-header {
-  text-align: center;
-  margin-bottom: 60px;
-  animation: fadeUp .7s ease both;
-}
-
-.menu-eyebrow {
-  font-size: .72rem;
-  font-weight: 500;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--brown);
-  display: block;
-  margin-bottom: 14px;
-}
-
-.menu-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 400;
-  line-height: 1;
-  color: var(--dark-green);
-  display: inline-block;
-}
-
-.menu-title em { font-style: italic; color: var(--brown); }
-
-.menu-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 22px auto 0;
-  width: fit-content;
-}
-
-.menu-divider span {
-  height: 1.5px; width: 80px;
-  background: linear-gradient(to right, transparent, var(--brown));
-}
-
-.menu-divider span:last-child { background: linear-gradient(to left, transparent, var(--brown)); }
-.menu-divider svg { color: var(--brown); flex-shrink: 0; }
-
-.filter-bar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 56px;
-  animation: fadeUp .7s .15s ease both;
-}
-
-.filter-btn {
-  padding: 9px 26px;
-  border-radius: 100px;
-  border: 1.5px solid var(--dark-green);
-  background: transparent;
-  font-family: 'Jost', sans-serif;
-  font-size: .82rem;
-  font-weight: 500;
-  letter-spacing: .06em;
-  color: var(--dark-green);
-  cursor: pointer;
-  transition: all .3s ease;
-  outline: none;
-}
-
-.filter-btn:hover {
-  background: rgba(85,136,59,.12);
-  border-color: var(--brown);
-  color: var(--brown);
-  transform: translateY(-1px);
-}
-
-.filter-btn.active {
-  background: var(--dark-green);
-  border-color: var(--dark-green);
-  color: #fff;
-  box-shadow: 0 6px 20px rgba(85,136,59,.30);
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 28px;
-}
-
-/* Card */
-.card {
-  background: #f8f8f6;
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Tag (popular/new) */
-.tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: #e6e6e6;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  text-transform: lowercase;
-}
-
-/* Image */
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.menu{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
- 
-}
-.card{
-  width: 300px;
-}
-/* Content */
-.content {
-  padding: 18px;
-}
-
-/* Category */
-.category {
-  font-size: 13px;
-  color: #8a8a8a;
-  margin-bottom: 6px;
-}
-
-/* Title */
-.content h2 {
-  font-size: 20px;
-  color: #3c5a2a;
-  margin-bottom: 10px;
-}
-
-/* Description */
-.desc {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-
-/* Bottom section */
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Price */
-.price {
-  font-weight: bold;
-  color: #2e3d22;
-}
-
-/* Add button */
-.add-btn {
-  background: #9c6b3c;
-  color: white;
-  border: none;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;}
-  
-.menu-card {
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 2px 18px rgba(85,136,59,.10);
-  border: 1px solid rgba(85,136,59,.12);
-  transition: transform .35s ease, box-shadow .35s ease;
-  position: relative;
-  animation: fadeUp .6s ease both;
-}
-
-.menu-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(85,136,59,.20);
-}
-
-.menu-card.hidden { display: none; }
-
-.card-badge {
-  position: absolute;
-  top: 14px; right: 14px;
-  color: #fff;
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 5px 11px;
-  border-radius: 100px;
-  z-index: 2;
-}
-
-.card-badge.new      { background: var(--dark-green); }
-.card-badge.popular  { background: var(--brown); }
-.card-badge.seasonal { background: #6b8f3a; }
-
-.card-img {
- 
-width: 100%;
-aspect-ratio: 4/ 3;   /* keeps consistent size */
-object-fit: cover;     /* clean fill */
-object-position: center;
-display: block;
-}
-
-
-.card-img-placeholder {
-  width: 100%;
-  height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.5rem;
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--pale-green) 100%);
-  color: var(--warm-gray);
-  flex-direction: column;
-  gap: 8px;
-}
-
-.card-img-placeholder p {
-  font-size: .75rem;
-  letter-spacing: .05em;
-  color: var(--warm-gray);
-}
-
-.card-body { padding: 22px 22px 20px; }
-
-.card-category {
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--brown);
-  margin-bottom: 6px;
-}
-
-.card-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--dark-green);
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-
-.card-desc {
-  font-size: .83rem;
-  color: var(--warm-gray);
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-.card-footer { display: flex; align-items: center; justify-content: space-between; }
-
-.card-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--dark);
-}
-
-.card-price span {
-  font-size: .75rem;
-  font-weight: 400;
-  color: var(--warm-gray);
-  font-family: 'Jost', sans-serif;
-  margin-left: 2px;
-}
-
-.card-add {
-  width: 38px; height: 38px;
-  border-radius: 50%; border: none;
-  background: var(--brown); color: #fff;
-  font-size: 1.3rem;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: background .25s, transform .2s;
-  line-height: 1;
-}
-
-.card-add:hover { background: var(--dark-green); transform: scale(1.12) rotate(90deg); }
-
-.empty-state { grid-column: 1/-1; text-align: center; padding: 80px 20px; display: none; }
-.empty-state.visible { display: block; }
-.empty-state p { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--warm-gray); font-style: italic; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 640px) {
-  .menu-grid { grid-template-columns: 1fr; }
-  .menu-title { font-size: 2.6rem; }
-}
-
-                </style>
-=======
->>>>>>> c5846d960efe423acd99734d971fcceb110b570c
                 <header class="menu-header">
                   <span class="menu-eyebrow">Crafted with love</span>
                   <h2 class="menu-title">Our <em>Menu</em></h2>
@@ -1098,9 +638,194 @@ display: block;
         </section>
         <!-- blog-section -->
         <section id="blog" class="blog-section">
-            <h1>
-                this is for blogs
-            </h1>
+            <div class="blog-inner">
+          
+              <!-- ── HEADER ── -->
+              <header class="blog-header">
+                <span class="blog-eyebrow">Stories from our kitchen</span>
+                <h2 class="blog-title">Our <em>Blog</em></h2>
+                <div class="blog-divider">
+                  <span></span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                  </svg>
+                  <span></span>
+                </div>
+              </header>
+          
+              <!-- ── FEATURED POST ── -->
+              <a href="article.html" class="blog-featured">
+                <!-- Replace src with your image path -->
+               
+                <div class="featured-body">
+                   <img class="featured-img" src="images/alexey-sabulevskiy-IMyUQRuZXb0-unsplash.jpg" alt="Featured Post"
+                     onerror="this.outerHTML='<div class=\'featured-img-placeholder\'>☕</div>'">
+                 
+                  <h2 class="featured-title">The Art of the Perfect Pour: How We Craft Every Cup</h2>
+           <p >From bean selection to the final pour, every cup at La Veta88 is a small ceremony. We take you behind the scenes of our morning ritual — the grind, the tamp, the bloom — and why it matters more than you'd think.</p>
+          <div class="post-meta">
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 5 5" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                      5 min read
+                    </span>
+                    <span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      March 20, 2026
+                    </span>               
+                  </div>
+                  <a href="article.html" class="read-more">
+                    Read Article
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </a>
+          
+              <!-- ── BLOG GRID ── -->
+              <div class="blog-grid">
+          
+                <!-- BLOG CARD 1 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.1s">
+                  <!-- Replace src with your image path -->
+                  <img class="blog-card-img" src="images/masala chai.jpeg" alt="Blog Post 1"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>🍵</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Tea Culture</span>
+                    <h3 class="blog-card-title">Why Masala Chai Is More Than Just a Drink</h3>
+                    <p class="blog-card-excerpt">The spices, the ritual, the warmth — masala chai carries centuries of tradition in every sip. We explore its roots and our own recipe.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        3 min read · Mar 15
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+                <!-- BLOG CARD 2 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.18s">
+                  <img class="blog-card-img" src="images/croissant.jpeg" alt="Blog Post 2"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>🥐</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Baking</span>
+                    <h3 class="blog-card-title">Secrets Behind Our Almond Croissant</h3>
+                    <p class="blog-card-excerpt">Frangipane, flaky layers, and patience — our head baker shares what makes this pastry so irresistibly good every single morning.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        4 min read · Mar 10
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+                <!-- BLOG CARD 3 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.26s">
+                  <img class="blog-card-img" src="images/expresso1.jpeg" alt="Blog Post 3"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>🌿</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Sustainability</span>
+                    <h3 class="blog-card-title">How We Source Our Coffee Beans Responsibly</h3>
+                    <p class="blog-card-excerpt">We believe great coffee starts long before the cup. Meet the farmers and cooperatives behind every batch we roast.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        6 min read · Mar 5
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+                <!-- BLOG CARD 4 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.34s">
+                  <img class="blog-card-img" src="images/lemon olive oil cake.jpeg" alt="Blog Post 4"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>🍋</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Recipes</span>
+                    <h3 class="blog-card-title">Make Our Lemon Olive Oil Cake at Home</h3>
+                    <p class="blog-card-excerpt">Our bestselling cake is simpler than you think. Here's the full recipe so you can bring a little La Veta88 into your kitchen.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        5 min read · Feb 28
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+                <!-- BLOG CARD 5 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.42s">
+                  <img class="blog-card-img" src="images/golden turmeric latte.jpeg" alt="Blog Post 5"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>✨</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Wellness</span>
+                    <h3 class="blog-card-title">Golden Milk: The Benefits of Turmeric in Your Daily Cup</h3>
+                    <p class="blog-card-excerpt">Anti-inflammatory, warming, and delicious — discover why turmeric lattes have become a staple for mindful mornings.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        4 min read · Feb 20
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+                <!-- BLOG CARD 6 -->
+                <a href="article.html" class="blog-card" style="animation-delay: 0.50s">
+                  <img class="blog-card-img" src="images/mushroom brushetta.jpeg" alt="Blog Post 6"
+                       onerror="this.outerHTML='<div class=\'blog-card-img-placeholder\'>🍄</div>'">
+                  <div class="blog-card-body">
+                    <span class="blog-card-tag">Food</span>
+                    <h3 class="blog-card-title">Why Mushrooms on Toast Is the New Avocado Toast</h3>
+                    <p class="blog-card-excerpt">Earthy, rich, and deeply satisfying — our mushroom bruschetta has quietly become the most ordered bite on our menu.</p>
+                    <div class="blog-card-footer">
+                      <span class="blog-card-meta">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        3 min read · Feb 14
+                      </span>
+                      <a href="article.html" class="blog-card-link">
+                        Read
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </a>
+          
+              </div><!-- end .blog-grid -->
+          
+              <!-- ── NEWSLETTER ── -->
+              <div class="newsletter">
+                <div class="newsletter-text">
+                  <h3>Stay in the <em>loop</em></h3>
+                  <p>Get our latest recipes, café news, and seasonal specials delivered to your inbox.</p>
+                </div>
+                <div class="newsletter-form">
+                  <input type="email" placeholder="Your email address">
+                  <button type="button">Subscribe</button>
+                </div>
+              </div>
+          
+            </div>
+
         </section>
 
         <!-- services-section -->
@@ -1108,6 +833,99 @@ display: block;
 
         </section>
     </main>
+
+    <!-- CHANGED BY KILO AI - Contact section (moved before footer by Kilo AI) -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="display-5 fw-bold mt-2">Contact <span class="text-warning">Us</span></h2>
+                <p class="lead text-muted mx-auto" style="max-width: 600px;">We'd love to hear from you!</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <!-- Validation feedback (Bootstrap 5) -->
+                                <div class="invalid-feedback">
+                                    Please enter your name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" name="subject">
+                                    <option value="General">General Inquiry</option>
+                                    <option value="Reservation">Table Reservation</option>
+                                    <option value="Feedback">Feedback</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your message.
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-warning btn-lg px-5">
+                                    <i class="bi bi-send me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="row g-4 mt-5">
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5>Location</h5>
+                        <p class="mb-0">New Road, Kathmandu</p>
+                        <p>Nepal</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h5>Phone</h5>
+                        <p class="mb-0">+977 01-1234567</p>
+                        <p>+977 9841234567</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h5>Email</h5>
+                        <p class="mb-0">info@kanchhikhobhatti.com</p>
+                        <p>orders@kanchhikhobhatti.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- footer-section -->
     <footer>

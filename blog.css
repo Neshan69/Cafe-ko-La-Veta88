@@ -22,13 +22,13 @@
   .blog-section {
     min-height: 100vh;
     padding: 40px 24px 50px;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
   }
 
   .blog-section::before {
     content: '';
-    position: fixed;
+    /* position: fixed; */
     inset: 0;
     background:
       radial-gradient(ellipse 60% 50% at 10% 15%, rgba(85,136,59,.18) 0%, transparent 60%),

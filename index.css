@@ -674,14 +674,14 @@
            23. COMPONENT TOKENS — HEADER / HERO
            ============================================================ */
    
-       --hero-bg: var(--color-forest-700);
+       --hero-bg: var(--dark);
        --hero-text: #ffffff;
-       --hero-accent: var(--color-lime-300);
+       --hero-accent: var(--dark);
        --hero-subtext: var(--color-mint-200);
-       --hero-min-height: 80vh;
+       --hero-min-height: 80vh; 
        --hero-overlay: linear-gradient(135deg,
-               var(--color-forest-700) 0%,
-               var(--color-forest-500) 60%,
+               var(--dark) 0%,
+               var(--dark) 60%,
                var(--color-lime-500) 100%);
    
        /* ============================================================
@@ -2740,7 +2740,7 @@ h1, h2 {
    .profile-container {
        max-width: 410px;
        margin: 2.5rem auto;
-       background: var(--surface, #fff);
+       background: var(--avatar-bg, #fff);
        border-radius: var(--radius-lg, 18px);
        box-shadow: 0 2px 22px #b86b2812;
        padding: 2.2rem 2rem 1.5rem 2rem;

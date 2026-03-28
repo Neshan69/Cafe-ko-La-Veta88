@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La-Veta88 Booking</title>
+  <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+
+<nav>
+  <h2>La-Veta88 ☕</h2>
+  <ul>
+    <li>Home</li>
+    <li>Menu</li>
+  </ul>
+</nav>
+
+<div class="booking">
+  <h1>Reserve Table</h1>
+
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <!-- Guests (max 8) -->
+    <input type="number" id="guests" placeholder="Guests" min="1" max="8" required>
+
+    <!-- Table Types (updated to 8) -->
+    <select id="tableType" required>
+      <option value="">Select Table</option>
+      <option value="2">2 Seat</option>
+      <option value="4">4 Seat</option>
+      <option value="6">6 Seat</option>
+      <option value="8">8 Seat</option>
+    </select>
+
+    <input type="date" id="date" required>
+    <input type="time" id="time" required>
+
+    <button type="submit">Book Now</button>
+  </form>
+</div>
+
+<!-- Admin Panel -->
+<div class="admin">
+  <h2>📋 Booking Records</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Guests</th>
+        <th>Table</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="bookingList"></tbody>
+  </table>
+</div>
+
+<script src="booking.js"></script>
+</body>
+</html>

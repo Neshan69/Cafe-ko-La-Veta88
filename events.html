@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Catering & Hosting | La-Veta88 Café Kathmandu</title>
+  <meta name="description" content="La-Veta88 offers premium event catering and private hosting in Kathmandu. Custom menus, professional staff, and flexible packages for corporate events, birthdays, and weddings.">
+  <link rel="canonical" href="https://www.la-veta88.com/events.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FoodEstablishment","name":"La-Veta88 Event Catering","url":"https://www.la-veta88.com/events.html","telephone":"+977-9806124533","servesCuisine":["Coffee","Continental","Nepali","Pastry"]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --c-bg: #f2f7fd;
+      --c-dark: #0e1e2e;
+      --c-blue: #2a5c9a;
+      --c-teal: #2a8a7a;
+      --c-lime: #C1E899;
+      --c-green: #55883B;
+      --c-surface: #fff;
+      --c-muted: #5a7090;
+      --c-border: rgba(42,92,154,0.12);
+      --font-d: 'DM Serif Display', serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --radius: 16px;
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: var(--font-b); background: var(--c-bg); color: var(--c-dark); min-height:100vh; }
+
+    .back-nav {
+      background: var(--c-surface); border-bottom: 1px solid var(--c-border);
+      padding: 14px 40px; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(42,92,154,0.07);
+    }
+    .back-nav a {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--c-blue); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: gap 0.2s;
+    }
+    .back-nav a:hover { gap: 12px; }
+    .back-nav .brand { font-family: var(--font-d); color: var(--c-green); font-size: 1.1rem; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0e1e2e 0%, #1a3a5c 45%, #2a5c9a 100%);
+      color: #fff; padding: 90px 40px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(193,232,153,0.12) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      color: var(--c-lime); padding: 7px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      margin-bottom: 16px; line-height: 1.15;
+    }
+    .hero h1 em { color: var(--c-lime); font-style: italic; }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--c-lime); color: #0e1e2e;
+      text-decoration: none; padding: 14px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(193,232,153,0.5);
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(193,232,153,0.6); color: #0e1e2e; }
+
+    /* Packages */
+    .packages {
+      max-width: 1100px; margin: 60px auto;
+      padding: 0 20px;
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--c-blue); display: block; margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--c-dark); margin-bottom: 10px;
+    }
+    .section-header h2 em { color: var(--c-blue); font-style: italic; }
+    .section-header p { color: var(--c-muted); font-size: 0.93rem; max-width: 480px; margin: 0 auto; }
+
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .pkg-card {
+      background: var(--c-surface); border-radius: var(--radius);
+      border: 1.5px solid var(--c-border);
+      box-shadow: 0 2px 16px rgba(42,92,154,0.07);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(42,92,154,0.16); }
+    .pkg-card.recommended {
+      border-color: var(--c-blue);
+      position: relative;
+    }
+    .pkg-rec-label {
+      position: absolute; top: 0; left: 0; right: 0;
+      background: var(--c-blue); color: #fff;
+      text-align: center; padding: 8px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .pkg-top { padding: 28px 24px 20px; }
+    .pkg-card.recommended .pkg-top { padding-top: 44px; }
+    .pkg-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .pkg-top h3 { font-family: var(--font-d); font-size: 1.2rem; color: var(--c-dark); margin-bottom: 6px; }
+    .pkg-top .sub { font-size: 0.8rem; color: var(--c-muted); line-height: 1.5; margin-bottom: 16px; }
+    .pkg-price {
+      display: flex; align-items: baseline; gap: 4px;
+      font-family: var(--font-d); font-size: 1.5rem; color: var(--c-blue);
+    }
+    .pkg-price span { font-family: var(--font-b); font-size: 0.78rem; color: var(--c-muted); }
+
+    .pkg-features { padding: 0 24px 24px; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pkg-features li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.83rem; color: var(--c-dark);
+    }
+    .pkg-features li i { color: var(--c-green); font-size: 0.8rem; }
+    .pkg-btn {
+      display: block; margin: 0 24px 24px;
+      padding: 12px;
+      background: var(--c-dark);
+      color: #fff; text-decoration: none;
+      border-radius: 10px; text-align: center;
+      font-size: 0.88rem; font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .pkg-btn:hover { background: var(--c-blue); transform: translateY(-1px); color:#fff; }
+    .pkg-card.recommended .pkg-btn { background: var(--c-blue); }
+    .pkg-card.recommended .pkg-btn:hover { background: #1a4a88; }
+
+    /* Gallery strip */
+    .gallery-strip {
+      padding: 0 20px 80px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .gallery-strip h3 {
+      font-family: var(--font-d); font-size: 1.2rem;
+      color: var(--c-muted); margin-bottom: 20px; text-align: center;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gallery-thumb {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2a5c9a22 0%, #C1E89944 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .gallery-thumb:hover { transform: scale(1.04); }
+
+    /* Testimonial */
+    .testimonial-band {
+      background: var(--c-dark); padding: 64px 40px; text-align: center; color: #fff;
+    }
+    .testimonial-band blockquote {
+      font-family: var(--font-d); font-size: 1.35rem;
+      color: var(--c-lime); max-width: 640px; margin: 0 auto 20px;
+      font-style: italic; line-height: 1.6;
+    }
+    .testimonial-band cite { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+    /* Quote form */
+    .quote-section { max-width: 680px; margin: 80px auto; padding: 0 20px; }
+    .quote-section h2 { font-family: var(--font-d); font-size: 1.8rem; margin-bottom: 6px; }
+    .quote-section .sub { color: var(--c-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .q-card {
+      background: var(--c-surface); border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(42,92,154,0.1); padding: 40px;
+    }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .f-group { display: flex; flex-direction: column; gap: 6px; }
+    .f-group.full { grid-column: 1/-1; }
+    label { font-size: 0.78rem; font-weight: 600; color: var(--c-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    input, select, textarea {
+      border: 1.5px solid var(--c-border); border-radius: 10px;
+      padding: 12px 16px; font-family: var(--font-b); font-size: 0.9rem;
+      color: var(--c-dark); background: var(--c-bg); outline: none;
+      transition: border-color 0.2s; width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--c-blue);
+      box-shadow: 0 0 0 3px rgba(42,92,154,0.1); background: #fff;
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .submit-btn {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--c-blue) 0%, #1a4a88 100%);
+      color: #fff; border: none; border-radius: 12px;
+      font-family: var(--font-b); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 10px; margin-top: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(42,92,154,0.3);
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(42,92,154,0.4); }
+    .toast-msg {
+      display: none; align-items: center; gap: 12px;
+      background: var(--c-dark); color: var(--c-lime);
+      border-radius: 12px; padding: 16px 20px;
+      margin-top: 16px; font-size: 0.9rem; font-weight: 600;
+    }
+    .toast-msg.show { display: flex; }
+    .mini-footer { background: #060d14; color: rgba(255,255,255,0.4); text-align: center; padding: 20px; font-size: 0.8rem; }
+    .mini-footer a { color: var(--c-lime); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .back-nav { padding: 14px 20px; }
+      .hero { padding: 60px 20px; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .f-row { grid-template-columns: 1fr; }
+      .q-card { padding: 24px 18px; }
+      .testimonial-band { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="back-nav">
+    <a href="index.html#home"><i class="bi bi-arrow-left-short"></i> Back to La-Veta88</a>
+    <span class="brand">La-Veta88 Café</span>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-badge"><i class="bi bi-people-fill"></i> Event Catering & Hosting</div>
+    <h1 id="hero-h1">Your Event, <em>Beautifully Catered</em></h1>
+    <p>From intimate birthday parties to corporate luncheons — we handle the food so you can focus on the people.</p>
+    <a href="#quote" class="hero-cta"><i class="bi bi-envelope-plus"></i> Get a Free Quote</a>
+  </section>
+
+  <section class="packages" aria-labelledby="pkg-h2">
+    <div class="section-header">
+      <span class="eyebrow">Packages</span>
+      <h2 id="pkg-h2">Pick Your <em>Experience</em></h2>
+      <p>All packages include setup, professional staff, and our signature La-Veta88 quality.</p>
+    </div>
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <span class="pkg-icon" aria-hidden="true">🍰</span>
+          <h3>Essential</h3>
+          <p class="sub">Perfect for small gatherings, office lunches, or birthday treats for up to 20 people.</p>
+          <div class="pkg-price">Rs. 8,000 <span>/ event</span></div>
+        </div>
+        <ul class="pkg-features">
+          <li><i class="bi bi-check-lg"></i> 2-hour service window</li>
+          <li><i class="bi bi-check-lg"></i> Coffee & tea station</li>
+          <li><i class="bi bi-check-lg"></i> Pastry selection (6 types)</li>
+          <li><i class="bi bi-check-lg"></i> 1 dedicated staff member</li>
+          <li><i class="bi bi-check-lg"></i> Basic setup & cleanup</li>
+        </ul>
+        <a href="#quote" class="pkg-btn">Get Quote</a>
+      </div>
+
+      <div class="pkg-card recommended">
+        <div class="pkg-rec-label">⭐ Most Chosen</div>
+        <div class="pkg-top">
+          <span class="pkg-icon" aria-hidden="true">☕</span>
+          <h3>Premium</h3>
+          <p class="sub">Ideal for corporate events, weddings, and celebrations for 20–60 people.</p>
+          <div class="pkg-price">Rs. 22,000 <span>/ event</span></div>
+        </div>
+        <ul class="pkg-features">
+          <li><i class="bi bi-check-lg"></i> 4-hour service window</li>
+          <li><i class="bi bi-check-lg"></i> Specialty coffee bar setup</li>
+          <li><i class="bi bi-check-lg"></i> Full pastry + light bites menu</li>
+          <li><i class="bi bi-check-lg"></i> 2 dedicated staff</li>
+          <li><i class="bi bi-check-lg"></i> Custom menu consultation</li>
+          <li><i class="bi bi-check-lg"></i> Full setup & cleanup</li>
+          <li><i class="bi bi-check-lg"></i> Branded napkins & signage</li>
+        </ul>
+        <a href="#quote" class="pkg-btn">Get Quote</a>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <span class="pkg-icon" aria-hidden="true">🎊</span>
+          <h3>Exclusive</h3>
+          <p class="sub">Large-scale events, gala dinners, and multi-day conferences for 60+ people.</p>
+          <div class="pkg-price">Custom <span>pricing</span></div>
+        </div>
+        <ul class="pkg-features">
+          <li><i class="bi bi-check-lg"></i> Full-day service available</li>
+          <li><i class="bi bi-check-lg"></i> Complete menu design</li>
+          <li><i class="bi bi-check-lg"></i> Hot food & multi-course option</li>
+          <li><i class="bi bi-check-lg"></i> Dedicated event manager</li>
+          <li><i class="bi bi-check-lg"></i> On-site prep kitchen</li>
+          <li><i class="bi bi-check-lg"></i> Dietary & allergy management</li>
+          <li><i class="bi bi-check-lg"></i> Post-event report</li>
+        </ul>
+        <a href="#quote" class="pkg-btn">Contact Us</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gallery strip -->
+  <div class="gallery-strip" aria-label="Event photos">
+    <h3>Events We've Catered</h3>
+    <div class="gallery-grid" aria-hidden="true">
+      <div class="gallery-thumb">🥂</div>
+      <div class="gallery-thumb">🎂</div>
+      <div class="gallery-thumb">🏢</div>
+      <div class="gallery-thumb">☕</div>
+    </div>
+  </div>
+
+  <!-- Testimonial -->
+  <section class="testimonial-band" aria-labelledby="test-h2">
+    <h2 id="test-h2" style="font-family:var(--font-d);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:28px;">What Clients Say</h2>
+    <blockquote>
+      "La-Veta88 catered our company's annual day and it was absolutely seamless. The coffee bar was a huge hit and every single pastry was exceptional."
+    </blockquote>
+    <cite>— HR Director, Tech Company, Kathmandu</cite>
+  </section>
+
+  <!-- Quote form -->
+  <section class="quote-section" id="quote" aria-labelledby="quote-h2">
+    <h2 id="quote-h2">Request a Free Quote</h2>
+    <p class="sub">Tell us about your event and we'll get back with a tailored proposal.</p>
+    <div class="q-card">
+      <form id="eventsForm" novalidate>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="ev-name">Full Name *</label>
+            <input type="text" id="ev-name" placeholder="Your name" required>
+          </div>
+          <div class="f-group">
+            <label for="ev-phone">Phone *</label>
+            <input type="tel" id="ev-phone" placeholder="+977 98XXXXXXXX" required>
+          </div>
+          <div class="f-group">
+            <label for="ev-email">Email</label>
+            <input type="email" id="ev-email" placeholder="your@email.com">
+          </div>
+          <div class="f-group">
+            <label for="ev-type">Event Type *</label>
+            <select id="ev-type" required>
+              <option value="">— Select event type —</option>
+              <option value="birthday">Birthday Party</option>
+              <option value="corporate">Corporate / Office</option>
+              <option value="wedding">Wedding / Reception</option>
+              <option value="conference">Conference / Seminar</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="ev-date">Event Date *</label>
+            <input type="date" id="ev-date" required>
+          </div>
+          <div class="f-group">
+            <label for="ev-guests">Number of Guests *</label>
+            <input type="number" id="ev-guests" min="5" placeholder="e.g. 40" required>
+          </div>
+          <div class="f-group full">
+            <label for="ev-package">Preferred Package</label>
+            <select id="ev-package">
+              <option value="">— Select package —</option>
+              <option value="essential">Essential (Rs. 8,000)</option>
+              <option value="premium">Premium (Rs. 22,000)</option>
+              <option value="exclusive">Exclusive (Custom)</option>
+            </select>
+          </div>
+          <div class="f-group full">
+            <label for="ev-notes">Event Details & Dietary Requirements</label>
+            <textarea id="ev-notes" placeholder="Tell us about your event, venue, dietary needs, theme…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="bi bi-send-check"></i> Send Quote Request
+        </button>
+        <div class="toast-msg" id="evTost" role="alert" aria-live="polite">
+          <i class="bi bi-check-circle-fill"></i>
+          Quote request received! We'll respond within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    <p>&copy; 2026 <a href="index.html">La-Veta88 Café</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    var d = document.getElementById('ev-date');
+    if (d) d.min = new Date().toISOString().split('T')[0];
+
+    document.getElementById('eventsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var n = document.getElementById('ev-name').value.trim();
+      var p = document.getElementById('ev-phone').value.trim();
+      var t = document.getElementById('ev-type').value;
+      var date = document.getElementById('ev-date').value;
+      var g = document.getElementById('ev-guests').value;
+      if (!n || !p || !t || !date || !g) { alert('Please fill in all required (*) fields.'); return; }
+      var toast = document.getElementById('evTost');
+      toast.classList.add('show');
+      var btn = this.querySelector('.submit-btn');
+      btn.disabled = true; btn.textContent = 'Request Sent ✓';
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>

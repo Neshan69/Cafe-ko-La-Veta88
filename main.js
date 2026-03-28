@@ -2,6 +2,20 @@
    NAVBAR — Scroll, Hamburger, Active Link, Search
    ============================================================ */
 
+   document.addEventListener('DOMContentLoaded', function () {
+    var logoBtn = document.querySelector('.re-load');
+    if (!logoBtn) return;
+   
+    logoBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Navigate to current URL + #menu hash, then reload
+      // This causes page to reload and jump to #menu
+      var base = window.location.pathname + window.location.search;
+      window.location.href = base + '#menu';
+      // Small timeout to ensure the hash is applied before reload
+      setTimeout(function () { window.location.reload(); }, 50);
+    });
+  });
    document.addEventListener('DOMContentLoaded', () => {
 
     const header    = document.querySelector('header');

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baking & Coffee Classes | La-Veta88 Café Kathmandu</title>
+  <meta name="description" content="Learn artisan coffee-making and baking from expert baristas and chefs at La-Veta88. Group workshops, private sessions, and team events available in Kathmandu.">
+  <meta property="og:title" content="Baking & Coffee Classes | La-Veta88 Café">
+  <meta property="og:description" content="Hands-on learning from the experts who brew and bake every day.">
+  <link rel="canonical" href="https://www.la-veta88.com/classes.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"EducationalOrganization","name":"La-Veta88 Baking & Coffee Classes","url":"https://www.la-veta88.com/classes.html","address":{"@type":"PostalAddress","streetAddress":"Baneswor Height","addressLocality":"Kathmandu","addressCountry":"NP"},"telephone":"+977-9806124533"}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --c-bg: #fdf8f2;
+      --c-dark: #2c1a0e;
+      --c-brown: #9A6735;
+      --c-brown-light: #c8913a;
+      --c-green: #55883B;
+      --c-lime: #C1E899;
+      --c-surface: #ffffff;
+      --c-muted: #8a6a50;
+      --c-border: rgba(154,103,53,0.15);
+      --font-d: 'DM Serif Display', serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --radius: 16px;
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: var(--font-b); background: var(--c-bg); color: var(--c-dark); min-height:100vh; }
+
+    /* Back nav */
+    .back-nav {
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(154,103,53,0.08);
+    }
+    .back-nav a {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--c-brown); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: gap 0.2s;
+    }
+    .back-nav a:hover { gap: 12px; }
+    .back-nav .brand { font-family: var(--font-d); color: var(--c-brown); font-size: 1.1rem; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #2c1a0e 0%, #5c3a1e 50%, #8c5a2e 100%);
+      color: #fff;
+      padding: 90px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(200,145,58,0.25) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,145,58,0.2);
+      border: 1px solid rgba(200,145,58,0.4);
+      color: #f0c070;
+      padding: 7px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      margin-bottom: 16px; line-height: 1.15;
+    }
+    .hero h1 em { color: #f0c070; font-style: italic; }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--c-brown-light);
+      color: #fff; text-decoration: none;
+      padding: 14px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,145,58,0.5);
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(200,145,58,0.6); color: #fff; }
+
+    /* Classes grid */
+    .classes-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .classes-section .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .classes-section .eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--c-brown); display: block; margin-bottom: 10px;
+    }
+    .classes-section h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--c-dark); margin-bottom: 10px;
+    }
+    .classes-section h2 em { color: var(--c-brown); font-style: italic; }
+    .classes-section .desc { color: var(--c-muted); font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .class-card {
+      background: var(--c-surface);
+      border: 1.5px solid var(--c-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 16px rgba(154,103,53,0.08);
+    }
+    .class-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(154,103,53,0.18); }
+    .class-card.featured {
+      border-color: var(--c-brown-light);
+      position: relative;
+    }
+    .class-card.featured::before {
+      content: '★ Most Popular';
+      position: absolute;
+      top: 14px; right: 14px;
+      background: var(--c-brown);
+      color: #fff;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px;
+      z-index: 1;
+    }
+    .class-img {
+      height: 180px;
+      background: linear-gradient(135deg, #d4a85a 0%, #a07035 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .class-body { padding: 24px; }
+    .class-tag {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--c-brown); margin-bottom: 8px; display: block;
+    }
+    .class-body h3 {
+      font-family: var(--font-d);
+      font-size: 1.2rem; color: var(--c-dark);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .class-body p { font-size: 0.83rem; color: var(--c-muted); line-height: 1.65; margin-bottom: 16px; }
+    .class-meta {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 18px;
+    }
+    .class-meta-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: var(--c-dark);
+    }
+    .class-meta-item i { color: var(--c-brown); width: 14px; }
+    .class-price {
+      display: flex; align-items: baseline; gap: 4px;
+      font-family: var(--font-d); font-size: 1.4rem;
+      color: var(--c-brown); margin-bottom: 16px;
+    }
+    .class-price span { font-family: var(--font-b); font-size: 0.8rem; color: var(--c-muted); }
+    .book-btn {
+      display: block; width: 100%;
+      padding: 11px 20px;
+      background: var(--c-dark);
+      color: #fff; border: none; border-radius: 10px;
+      font-family: var(--font-b); font-size: 0.88rem;
+      font-weight: 700; cursor: pointer; text-align: center;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+    .book-btn:hover { background: var(--c-brown); transform: translateY(-1px); color: #fff; }
+
+    /* Instructors */
+    .instructors {
+      background: var(--c-dark);
+      padding: 80px 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .instructors h2 { font-family: var(--font-d); font-size: 1.8rem; color: #f0c070; margin-bottom: 8px; }
+    .instructors .sub { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin-bottom: 48px; }
+    .inst-grid {
+      display: flex; gap: 40px; justify-content: center;
+      flex-wrap: wrap; max-width: 800px; margin: 0 auto;
+    }
+    .inst-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; max-width: 200px; text-align: center;
+    }
+    .inst-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      border: 3px solid #f0c070;
+      background: #5c3a1e;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      overflow: hidden;
+    }
+    .inst-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .inst-card h4 { font-size: 1rem; color: #fff; }
+    .inst-card span { font-size: 0.78rem; color: #f0c070; }
+    .inst-card p { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    /* Booking form */
+    .book-section {
+      max-width: 660px; margin: 80px auto;
+      padding: 0 20px;
+    }
+    .book-section h2 { font-family: var(--font-d); font-size: 1.8rem; margin-bottom: 6px; }
+    .book-section .sub { color: var(--c-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .book-form-card {
+      background: var(--c-surface);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(154,103,53,0.12);
+      padding: 40px;
+    }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .f-group { display: flex; flex-direction: column; gap: 6px; }
+    .f-group.full { grid-column: 1/-1; }
+    label { font-size: 0.78rem; font-weight: 600; color: var(--c-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    input, select, textarea {
+      border: 1.5px solid var(--c-border); border-radius: 10px;
+      padding: 12px 16px; font-family: var(--font-b); font-size: 0.9rem;
+      color: var(--c-dark); background: var(--c-bg); outline: none;
+      transition: border-color 0.2s; width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--c-brown);
+      box-shadow: 0 0 0 3px rgba(154,103,53,0.1);
+      background: #fff;
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .submit-btn {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--c-brown) 0%, #7a4e20 100%);
+      color: #fff; border: none; border-radius: 12px;
+      font-family: var(--font-b); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 10px; margin-top: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(154,103,53,0.35);
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(154,103,53,0.4); }
+    .toast-msg {
+      display: none; align-items: center; gap: 12px;
+      background: var(--c-dark); color: #f0c070;
+      border-radius: 12px; padding: 16px 20px;
+      margin-top: 16px; font-size: 0.9rem; font-weight: 600;
+    }
+    .toast-msg.show { display: flex; }
+
+    .mini-footer {
+      background: #1c0f06; color: rgba(255,255,255,0.4);
+      text-align: center; padding: 20px; font-size: 0.8rem;
+    }
+    .mini-footer a { color: #f0c070; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .back-nav { padding: 14px 20px; }
+      .hero { padding: 60px 20px; }
+      .classes-grid { grid-template-columns: 1fr; }
+      .f-row { grid-template-columns: 1fr; }
+      .book-form-card { padding: 24px 18px; }
+      .instructors { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="back-nav">
+    <a href="index.html#home"><i class="bi bi-arrow-left-short"></i> Back to La-Veta88</a>
+    <span class="brand">La-Veta88 Café</span>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-badge"><i class="bi bi-mortarboard-fill"></i> Learn from the Experts</div>
+    <h1 id="hero-h1">Baking & Coffee <em>Classes</em></h1>
+    <p>Hands-on workshops led by our head barista and pastry chef. Perfect for beginners, enthusiasts, and teams.</p>
+    <a href="#book" class="hero-cta"><i class="bi bi-calendar2-plus"></i> Book a Class</a>
+  </section>
+
+  <section class="classes-section" aria-labelledby="classes-h2">
+    <div class="header">
+      <span class="eyebrow">Choose Your Experience</span>
+      <h2 id="classes-h2">Our <em>Workshops</em></h2>
+      <p class="desc">From beginner espresso to professional pastry, there's a class for every level.</p>
+    </div>
+
+    <div class="classes-grid">
+
+      <div class="class-card">
+        <div class="class-img" aria-hidden="true">☕</div>
+        <div class="class-body">
+          <span class="class-tag">Coffee</span>
+          <h3>Espresso Fundamentals</h3>
+          <p>Master extraction, milk texturing, and basic latte art. Walk away making café-quality coffee at home.</p>
+          <div class="class-meta">
+            <div class="class-meta-item"><i class="bi bi-clock"></i> 2 hours</div>
+            <div class="class-meta-item"><i class="bi bi-people"></i> Up to 8 people</div>
+            <div class="class-meta-item"><i class="bi bi-calendar"></i> Every Saturday, 10am</div>
+            <div class="class-meta-item"><i class="bi bi-person-check"></i> No experience needed</div>
+          </div>
+          <div class="class-price">Rs. 1,800 <span>/ person</span></div>
+          <a href="#book" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="class-card featured">
+        <div class="class-img" aria-hidden="true">🥐</div>
+        <div class="class-body">
+          <span class="class-tag">Baking</span>
+          <h3>Artisan Pastry Workshop</h3>
+          <p>Croissants, frangipane, choux — learn the French pastry fundamentals from our pastry chef Deepak.</p>
+          <div class="class-meta">
+            <div class="class-meta-item"><i class="bi bi-clock"></i> 3.5 hours</div>
+            <div class="class-meta-item"><i class="bi bi-people"></i> Up to 6 people</div>
+            <div class="class-meta-item"><i class="bi bi-calendar"></i> Sundays, 9am</div>
+            <div class="class-meta-item"><i class="bi bi-bar-chart"></i> Beginner–Intermediate</div>
+          </div>
+          <div class="class-price">Rs. 2,800 <span>/ person</span></div>
+          <a href="#book" class="book-btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-img" aria-hidden="true">🏢</div>
+        <div class="class-body">
+          <span class="class-tag">Team Events</span>
+          <h3>Private Group Session</h3>
+          <p>Custom workshops for offices, birthday parties, or any group. We come to you, or host at the café.</p>
+          <div class="class-meta">
+            <div class="class-meta-item"><i class="bi bi-clock"></i> 2–4 hours</div>
+            <div class="class-meta-item"><i class="bi bi-people"></i> 8–30 people</div>
+            <div class="class-meta-item"><i class="bi bi-calendar"></i> By appointment</div>
+            <div class="class-meta-item"><i class="bi bi-gear"></i> Fully customizable</div>
+          </div>
+          <div class="class-price">Rs. 15,000 <span>/ group</span></div>
+          <a href="#book" class="book-btn">Get a Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Instructors -->
+  <section class="instructors" aria-labelledby="inst-h2">
+    <h2 id="inst-h2">Meet Your Instructors</h2>
+    <p class="sub">Learn from professionals who cook and brew here every single day.</p>
+    <div class="inst-grid">
+      <div class="inst-card">
+        <div class="inst-avatar">👨‍🍳</div>
+        <h4>Durga Prasad Sharma</h4>
+        <span>Head Barista · 10+ years</span>
+        <p>Specialty coffee expert trained in espresso science and competition-level latte art.</p>
+      </div>
+      <div class="inst-card">
+        <div class="inst-avatar">🧑‍🍳</div>
+        <h4>Deepak Khadka</h4>
+        <span>Pastry Chef · 8 years</span>
+        <p>French-trained pastry chef specialising in laminated dough and modern desserts.</p>
+      </div>
+      <div class="inst-card">
+        <div class="inst-avatar">👩‍💼</div>
+        <h4>Aasha Shrestha</h4>
+        <span>Café Manager & Host</span>
+        <p>Coordinates all sessions and ensures every participant leaves with new skills and great memories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking form -->
+  <section class="book-section" id="book" aria-labelledby="book-h2">
+    <h2 id="book-h2">Book a Class</h2>
+    <p class="sub">Fill in your details and we'll confirm your spot within 24 hours.</p>
+    <div class="book-form-card">
+      <form id="classForm" novalidate>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="cl-name">Full Name *</label>
+            <input type="text" id="cl-name" placeholder="Your name" required>
+          </div>
+          <div class="f-group">
+            <label for="cl-phone">Phone *</label>
+            <input type="tel" id="cl-phone" placeholder="+977 98XXXXXXXX" required>
+          </div>
+          <div class="f-group">
+            <label for="cl-email">Email</label>
+            <input type="email" id="cl-email" placeholder="your@email.com">
+          </div>
+          <div class="f-group">
+            <label for="cl-class">Class Type *</label>
+            <select id="cl-class" required>
+              <option value="">— Choose a class —</option>
+              <option value="espresso">Espresso Fundamentals (Rs. 1,800/pp)</option>
+              <option value="pastry">Artisan Pastry Workshop (Rs. 2,800/pp)</option>
+              <option value="group">Private Group Session (Rs. 15,000/group)</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="cl-date">Preferred Date *</label>
+            <input type="date" id="cl-date" required>
+          </div>
+          <div class="f-group">
+            <label for="cl-guests">Number of People *</label>
+            <input type="number" id="cl-guests" min="1" max="30" placeholder="e.g. 4" required>
+          </div>
+          <div class="f-group full">
+            <label for="cl-notes">Any special requirements?</label>
+            <textarea id="cl-notes" placeholder="Dietary needs, skill level, preferred topics…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="bi bi-send-check"></i> Request Booking
+        </button>
+        <div class="toast-msg" id="classTost" role="alert" aria-live="polite">
+          <i class="bi bi-check-circle-fill"></i>
+          Booking request sent! We'll confirm within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    <p>&copy; 2026 <a href="index.html">La-Veta88 Café</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Min date
+    var d = document.getElementById('cl-date');
+    if (d) d.min = new Date().toISOString().split('T')[0];
+
+    document.getElementById('classForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name  = document.getElementById('cl-name').value.trim();
+      var phone = document.getElementById('cl-phone').value.trim();
+      var cls   = document.getElementById('cl-class').value;
+      var date  = document.getElementById('cl-date').value;
+      var guests= document.getElementById('cl-guests').value;
+      if (!name || !phone || !cls || !date || !guests) {
+        alert('Please fill in all required (*) fields.'); return;
+      }
+      var t = document.getElementById('classTost');
+      t.classList.add('show');
+      var btn = this.querySelector('.submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Request Sent ✓';
+      t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>

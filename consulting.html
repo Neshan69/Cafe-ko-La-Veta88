@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary Consulting | La-Veta88 Café Kathmandu</title>
+  <meta name="description" content="La-Veta88 offers expert culinary consulting for new and established cafés in Nepal — menu development, equipment sourcing, staff training, and business strategy.">
+  <link rel="canonical" href="https://www.la-veta88.com/consulting.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"La-Veta88 Culinary Consulting","url":"https://www.la-veta88.com/consulting.html","telephone":"+977-9806124533","areaServed":"Nepal","serviceType":"Culinary Consulting"}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --c-bg: #faf7f2;
+      --c-dark: #1a1208;
+      --c-gold: #c8913a;
+      --c-gold-light: #e0b060;
+      --c-green: #55883B;
+      --c-lime: #C1E899;
+      --c-surface: #fff;
+      --c-muted: #8a7050;
+      --c-border: rgba(200,145,58,0.15);
+      --font-d: 'DM Serif Display', serif;
+      --font-b: 'DM Sans', system-ui, sans-serif;
+      --radius: 16px;
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: var(--font-b); background: var(--c-bg); color: var(--c-dark); min-height:100vh; }
+
+    .back-nav {
+      background: var(--c-surface); border-bottom: 1px solid var(--c-border);
+      padding: 14px 40px; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(200,145,58,0.08);
+    }
+    .back-nav a {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--c-gold); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: gap 0.2s;
+    }
+    .back-nav a:hover { gap: 12px; }
+    .back-nav .brand { font-family: var(--font-d); color: var(--c-green); font-size: 1.1rem; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #1a1208 0%, #3a2810 45%, #5a3e1a 100%);
+      color: #fff; padding: 90px 40px; text-align: center; overflow: hidden; position: relative;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 70% 50% at 50% 110%, rgba(200,145,58,0.2) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,145,58,0.15); border: 1px solid rgba(200,145,58,0.3);
+      color: var(--c-gold-light); padding: 7px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-d); font-size: clamp(2.2rem, 5vw, 3.8rem);
+      margin-bottom: 16px; line-height: 1.15;
+    }
+    .hero h1 em { color: var(--c-gold-light); font-style: italic; }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.68);
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--c-gold); color: #fff; text-decoration: none;
+      padding: 14px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,145,58,0.5);
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(200,145,58,0.6); color: #fff; }
+
+    /* Services offered */
+    .services {
+      max-width: 1100px; margin: 70px auto; padding: 0 20px;
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--c-gold); display: block; margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-family: var(--font-d); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--c-dark); margin-bottom: 10px;
+    }
+    .section-header h2 em { color: var(--c-gold); font-style: italic; }
+    .section-header p { color: var(--c-muted); font-size: 0.93rem; max-width: 480px; margin: 0 auto; }
+
+    .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .svc-card {
+      background: var(--c-surface); border-radius: var(--radius);
+      border: 1.5px solid var(--c-border);
+      box-shadow: 0 2px 16px rgba(200,145,58,0.07);
+      padding: 32px 28px;
+      display: flex; gap: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .svc-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(200,145,58,0.14); }
+    .svc-icon-wrap {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(200,145,58,0.15), rgba(200,145,58,0.05));
+      border: 1.5px solid var(--c-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .svc-body h3 { font-family: var(--font-d); font-size: 1.1rem; color: var(--c-dark); margin-bottom: 8px; }
+    .svc-body p { font-size: 0.83rem; color: var(--c-muted); line-height: 1.65; }
+
+    /* Process timeline */
+    .process-section {
+      background: var(--c-dark); padding: 80px 40px; color: #fff;
+    }
+    .process-section h2 { font-family: var(--font-d); font-size: 1.8rem; color: var(--c-gold-light); text-align: center; margin-bottom: 8px; }
+    .process-section .sub { color: rgba(255,255,255,0.5); font-size: 0.88rem; text-align: center; margin-bottom: 56px; }
+
+    .timeline {
+      max-width: 780px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .tl-item {
+      display: flex; gap: 24px; position: relative;
+    }
+    .tl-item:not(:last-child) .tl-line::after {
+      content: ''; position: absolute;
+      left: 19px; top: 44px;
+      width: 2px; bottom: -28px;
+      background: linear-gradient(to bottom, var(--c-gold), transparent);
+    }
+    .tl-left {
+      display: flex; flex-direction: column; align-items: center;
+      width: 40px; flex-shrink: 0; position: relative;
+    }
+    .tl-line { position: relative; }
+    .tl-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--c-gold); color: var(--c-dark);
+      font-family: var(--font-d); font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; flex-shrink: 0;
+    }
+    .tl-body { padding: 8px 0 40px; }
+    .tl-body h4 { font-size: 1rem; color: var(--c-gold-light); margin-bottom: 6px; }
+    .tl-body p { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* Pricing tiers */
+    .pricing-section { max-width: 860px; margin: 80px auto; padding: 0 20px; }
+    .pricing-section .section-header { margin-bottom: 40px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .price-card {
+      background: var(--c-surface); border-radius: var(--radius);
+      border: 1.5px solid var(--c-border);
+      padding: 28px 22px; text-align: center;
+      box-shadow: 0 2px 14px rgba(200,145,58,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .price-card:hover { transform: translateY(-5px); box-shadow: 0 14px 32px rgba(200,145,58,0.14); }
+    .price-card.featured { border-color: var(--c-gold); }
+    .price-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-gold); margin-bottom: 8px; display: block; }
+    .price-card h3 { font-family: var(--font-d); font-size: 1.1rem; color: var(--c-dark); margin-bottom: 14px; }
+    .big-price { font-family: var(--font-d); font-size: 1.8rem; color: var(--c-gold); margin-bottom: 4px; }
+    .big-price small { font-family: var(--font-b); font-size: 0.75rem; color: var(--c-muted); }
+    .price-desc { font-size: 0.78rem; color: var(--c-muted); margin-bottom: 20px; line-height: 1.55; }
+    .price-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .price-features li { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--c-dark); }
+    .price-features li i { color: var(--c-green); }
+    .price-btn {
+      display: block; width: 100%; padding: 11px;
+      background: var(--c-dark); color: #fff; border: none;
+      border-radius: 10px; font-family: var(--font-b);
+      font-size: 0.85rem; font-weight: 700; cursor: pointer;
+      transition: background 0.2s; text-decoration: none; text-align: center;
+    }
+    .price-btn:hover { background: var(--c-gold); color: #fff; }
+
+    /* Inquiry form */
+    .inquiry-section { max-width: 660px; margin: 80px auto; padding: 0 20px; }
+    .inquiry-section h2 { font-family: var(--font-d); font-size: 1.8rem; margin-bottom: 6px; }
+    .inquiry-section .sub { color: var(--c-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .inq-card { background: var(--c-surface); border-radius: var(--radius); box-shadow: 0 4px 24px rgba(200,145,58,0.1); padding: 40px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .f-group { display: flex; flex-direction: column; gap: 6px; }
+    .f-group.full { grid-column: 1/-1; }
+    label { font-size: 0.78rem; font-weight: 600; color: var(--c-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    input, select, textarea {
+      border: 1.5px solid var(--c-border); border-radius: 10px;
+      padding: 12px 16px; font-family: var(--font-b); font-size: 0.9rem;
+      color: var(--c-dark); background: var(--c-bg); outline: none;
+      transition: border-color 0.2s; width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--c-gold);
+      box-shadow: 0 0 0 3px rgba(200,145,58,0.1); background: #fff;
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .submit-btn {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--c-gold) 0%, #9a6218 100%);
+      color: #fff; border: none; border-radius: 12px;
+      font-family: var(--font-b); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 10px; margin-top: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(200,145,58,0.35);
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,145,58,0.4); }
+    .toast-msg {
+      display: none; align-items: center; gap: 12px;
+      background: var(--c-dark); color: var(--c-gold-light);
+      border-radius: 12px; padding: 16px 20px;
+      margin-top: 16px; font-size: 0.9rem; font-weight: 600;
+    }
+    .toast-msg.show { display: flex; }
+    .mini-footer { background: #0e0906; color: rgba(255,255,255,0.4); text-align: center; padding: 20px; font-size: 0.8rem; }
+    .mini-footer a { color: var(--c-gold-light); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .back-nav { padding: 14px 20px; }
+      .hero { padding: 60px 20px; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .f-row { grid-template-columns: 1fr; }
+      .inq-card { padding: 24px 18px; }
+      .tl-item { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="back-nav">
+    <a href="index.html#home"><i class="bi bi-arrow-left-short"></i> Back to La-Veta88</a>
+    <span class="brand">La-Veta88 Café</span>
+  </nav>
+
+  <section class="hero" aria-labelledby="h1-cons">
+    <div class="hero-badge"><i class="bi bi-lightbulb-fill"></i> Culinary Consulting</div>
+    <h1 id="h1-cons">Build a Better <em>Café Business</em></h1>
+    <p>10+ years of running a successful café — now available to help you launch, grow, or transform yours.</p>
+    <a href="#inquiry" class="hero-cta"><i class="bi bi-chat-dots"></i> Start a Conversation</a>
+  </section>
+
+  <!-- Services -->
+  <section class="services" aria-labelledby="svc-h2">
+    <div class="section-header">
+      <span class="eyebrow">What We Offer</span>
+      <h2 id="svc-h2">Our <em>Consulting Services</em></h2>
+      <p>Practical, hands-on guidance from people who actually run a café every day.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">📋</div>
+        <div class="svc-body">
+          <h3>Menu Engineering</h3>
+          <p>Design a menu that balances profitability and customer delight. We analyse your cost structure, identify high-margin items, and craft descriptions that sell.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">🔧</div>
+        <div class="svc-body">
+          <h3>Equipment Sourcing</h3>
+          <p>Avoid expensive mistakes. We guide you to the right espresso machines, grinders, ovens, and smallwares for your volume and budget — with trusted supplier contacts.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">👥</div>
+        <div class="svc-body">
+          <h3>Staff Training Programs</h3>
+          <p>From barista fundamentals to customer service culture — we train your team to deliver consistently excellent experiences from day one.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">📈</div>
+        <div class="svc-body">
+          <h3>Business Strategy</h3>
+          <p>Location analysis, break-even modelling, pricing strategy, and brand positioning — the business fundamentals that determine whether a café succeeds or fails.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">🧪</div>
+        <div class="svc-body">
+          <h3>Recipe Development</h3>
+          <p>Signature drinks, seasonal specials, and pastry recipes that can be executed consistently at scale — developed and tested in our own kitchen.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon-wrap" aria-hidden="true">🏗️</div>
+        <div class="svc-body">
+          <h3>New Café Launch</h3>
+          <p>End-to-end support for opening a café — from concept design and layout planning to opening day staffing and the first 90 days of operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section" aria-labelledby="proc-h2">
+    <h2 id="proc-h2">Our Consulting Process</h2>
+    <p class="sub">We follow a structured approach so you get results, not just advice.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left tl-line">
+          <div class="tl-num">1</div>
+        </div>
+        <div class="tl-body">
+          <h4>Discovery Call (Free)</h4>
+          <p>We start with a 30-minute conversation to understand your goals, current situation, and biggest challenges — no obligation, no charge.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left tl-line">
+          <div class="tl-num">2</div>
+        </div>
+        <div class="tl-body">
+          <h4>Audit & Assessment</h4>
+          <p>We review your existing menu, costs, operations, and branding — either remotely or on-site — and identify the highest-impact opportunities.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left tl-line">
+          <div class="tl-num">3</div>
+        </div>
+        <div class="tl-body">
+          <h4>Customised Action Plan</h4>
+          <p>You receive a clear, prioritised roadmap with specific recommendations, estimated costs, timelines, and expected outcomes.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left tl-line">
+          <div class="tl-num">4</div>
+        </div>
+        <div class="tl-body">
+          <h4>Implementation Support</h4>
+          <p>We stay with you through execution — answering questions, troubleshooting, and adjusting strategy as results come in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing-section" aria-labelledby="price-h2">
+    <div class="section-header">
+      <span class="eyebrow">Investment</span>
+      <h2 id="price-h2">Consulting <em>Packages</em></h2>
+      <p>Transparent, fixed-fee engagements — no hidden extras.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <span class="price-tier">Starter</span>
+        <h3>Quick Wins</h3>
+        <div class="big-price">Rs. 15,000 <small>/ one-time</small></div>
+        <p class="price-desc">A focused 2-hour session tackling one key problem — menu, pricing, or coffee quality.</p>
+        <ul class="price-features">
+          <li><i class="bi bi-check-lg"></i> Discovery call</li>
+          <li><i class="bi bi-check-lg"></i> 2-hour on-site session</li>
+          <li><i class="bi bi-check-lg"></i> Written summary report</li>
+          <li><i class="bi bi-check-lg"></i> 1 follow-up call</li>
+        </ul>
+        <a href="#inquiry" class="price-btn">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tier">⭐ Popular — Full Audit</span>
+        <h3>Transformation</h3>
+        <div class="big-price">Rs. 45,000 <small>/ project</small></div>
+        <p class="price-desc">Comprehensive audit + action plan covering menu, operations, training, and brand.</p>
+        <ul class="price-features">
+          <li><i class="bi bi-check-lg"></i> Everything in Starter</li>
+          <li><i class="bi bi-check-lg"></i> Full business audit</li>
+          <li><i class="bi bi-check-lg"></i> Menu & recipe review</li>
+          <li><i class="bi bi-check-lg"></i> Equipment recommendations</li>
+          <li><i class="bi bi-check-lg"></i> Team training (half-day)</li>
+          <li><i class="bi bi-check-lg"></i> 30-day support access</li>
+        </ul>
+        <a href="#inquiry" class="price-btn">Get Started</a>
+      </div>
+      <div class="price-card">
+        <span class="price-tier">Launch</span>
+        <h3>New Café Setup</h3>
+        <div class="big-price">Custom <small>pricing</small></div>
+        <p class="price-desc">End-to-end launch support from concept to your first month of trading.</p>
+        <ul class="price-features">
+          <li><i class="bi bi-check-lg"></i> Everything in Transformation</li>
+          <li><i class="bi bi-check-lg"></i> Concept & brand guidance</li>
+          <li><i class="bi bi-check-lg"></i> Layout & workflow design</li>
+          <li><i class="bi bi-check-lg"></i> Equipment sourcing</li>
+          <li><i class="bi bi-check-lg"></i> Opening week staffing</li>
+          <li><i class="bi bi-check-lg"></i> 90-day check-ins</li>
+        </ul>
+        <a href="#inquiry" class="price-btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry form -->
+  <section class="inquiry-section" id="inquiry" aria-labelledby="inq-h2">
+    <h2 id="inq-h2">Start the Conversation</h2>
+    <p class="sub">Tell us about your café and we'll schedule a free discovery call.</p>
+    <div class="inq-card">
+      <form id="consultForm" novalidate>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="cn-name">Your Name *</label>
+            <input type="text" id="cn-name" placeholder="Full name" required>
+          </div>
+          <div class="f-group">
+            <label for="cn-phone">Phone *</label>
+            <input type="tel" id="cn-phone" placeholder="+977 98XXXXXXXX" required>
+          </div>
+          <div class="f-group">
+            <label for="cn-email">Email</label>
+            <input type="email" id="cn-email" placeholder="your@email.com">
+          </div>
+          <div class="f-group">
+            <label for="cn-pkg">Interested In *</label>
+            <select id="cn-pkg" required>
+              <option value="">— Select an option —</option>
+              <option value="quick">Quick Wins (Rs. 15,000)</option>
+              <option value="transform">Transformation (Rs. 45,000)</option>
+              <option value="launch">New Café Launch (Custom)</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="f-group full">
+            <label for="cn-cafe">About Your Café / Project *</label>
+            <textarea id="cn-cafe" placeholder="Tell us about your café — where it is, how long it's been open, your biggest challenge, what you'd like help with…" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="bi bi-send-check"></i> Send Inquiry
+        </button>
+        <div class="toast-msg" id="cnTost" role="alert" aria-live="polite">
+          <i class="bi bi-check-circle-fill"></i>
+          Inquiry received! We'll schedule a free call within 48 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="mini-footer">
+    <p>&copy; 2026 <a href="index.html">La-Veta88 Café</a>. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('consultForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var n = document.getElementById('cn-name').value.trim();
+      var p = document.getElementById('cn-phone').value.trim();
+      var pkg = document.getElementById('cn-pkg').value;
+      var cafe = document.getElementById('cn-cafe').value.trim();
+      if (!n || !p || !pkg || !cafe) { alert('Please fill in all required (*) fields.'); return; }
+      var toast = document.getElementById('cnTost');
+      toast.classList.add('show');
+      var btn = this.querySelector('.submit-btn');
+      btn.disabled = true; btn.textContent = 'Inquiry Sent ✓';
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>
